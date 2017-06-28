@@ -34,15 +34,14 @@ void* Function_t(void* Param)
 
 pthread_key_t p_key;
 
-// 执行函数1
+// 执行函数
 void * childFun(void *args)
 {
-	// 获取自己ID
 	pthread_t tid = pthread_self();
 	printf("thread %d enter\n", tid);
 
 	int* num = (int*)args;
-	cout << "args num = " << *num;
+	cout << "args num = " << *num << endl;
 
 	for (int i = 0; i < 99; i++)
 	{
@@ -86,6 +85,11 @@ void Testthread::BeginTest()
 		// 启动线程 ID, 线程属性, 线程函数,函数参数
 		pthread_create(&tid1, &attr, childFun, &a);
 		pthread_create(&tid2, NULL, childFun, &b);
+
+		// 用于创建线程私有的数据
+		// pthread_key_create();
+		// pthread_key_delete();
+
 
 		Sleep(1000);
 
