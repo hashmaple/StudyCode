@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{953a26d2-72fa-455c-a70f-5ea171611538}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stl\TestSTL.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="clib\MyCLib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="safe\CodeSafe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myboost\MyBoost.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="newCPP\NewCpp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="C++98\CPP98.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\Testthread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StudyCode.cpp" />
+    <ClCompile Include="stl\TestSTL.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="clib\MyCLib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="safe\CodeSafe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="myboost\MyBoost.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="newCPP\NewCpp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="C++98\CPP98.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thread\Testthread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lua\TestDefine.lua" />
+    <None Include="lua\TestLua.lua" />
+  </ItemGroup>
+</Project>
