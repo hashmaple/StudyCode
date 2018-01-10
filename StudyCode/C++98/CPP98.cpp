@@ -13,10 +13,17 @@
 #include <math.h>
 #include <time.h>
 #include <assert.h> 
+#include <set>
 
 
 #include<windows.h>
 #include<winbase.h>
+
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+
+#include <random>
 
 using namespace std;
 
@@ -47,6 +54,14 @@ CPP98::CPP98(void)
 CPP98::~CPP98(void)
 {
 }
+
+unsigned long ulrand(void) {
+	return (
+		(((unsigned long)rand() << 24) & 0xFF000000ul)
+		| (((unsigned long)rand() << 12) & 0x00FFF000ul)
+		| (((unsigned long)rand()) & 0x00000FFFul));
+}
+
 
 
 void exit_function(void)
@@ -220,17 +235,44 @@ void CPP98::BeginTest()
 	}
 
 	// 其他标准c函数
-	if (false)
+	if (0)
 	{
 		// main执行结束后调用的函数 (_exit，_Exit 都不会调用终止程序
 		atexit(exit_function);
 
 		// 随机数
 		srand(time(NULL));    
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 10000; i++)
 		{
-			printf("Random number %d: %d\n", i, rand()%100);
+			//printf("Random number %d: %d\n", i, rand()%100000);
 		}
+
+		// use current time as seed for random generator  #define RAND_MAX 0x7fff
+		std::srand(std::time(0)); 
+		int uniform_random_variable = std::rand();
+		std::cout << "Uniform random value on [0 " << RAND_MAX << "]: "
+			<< uniform_random_variable << '\n';
+
+		// 20W次产出的随机数,数量大约在86000个左右.
+		srand(time(NULL));
+		set<int> setNum;
+		for (int i = 0; i < 200000; i++) 
+		{
+			int random_num = ulrand() % 100000;
+			setNum.insert(random_num);
+		}
+
+		cout << "use ulrand 20W count gen " << setNum.size() << endl;
+
+		// C++ 11的随机数库
+		set<int> setNum2;
+		std::random_device rd;
+		std::mt19937 mt(rd());
+		for (int n = 0; n < 200000; n++)
+		{
+			setNum2.insert(mt() % 100000);
+		}
+		cout << "use C++ 11 mt19937 20W count gen " << setNum2.size() << endl;
 
 		assert(1);
 
