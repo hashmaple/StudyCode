@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CodeSafe.cpp" />
+    <ClCompile Include="CPP98.cpp" />
+    <ClCompile Include="MyCLib.cpp" />
+    <ClCompile Include="NewCpp.cpp" />
+    <ClCompile Include="TestSTL.cpp" />
+    <ClCompile Include="cpplanguage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CodeSafe.h" />
+    <ClInclude Include="CPP98.h" />
+    <ClInclude Include="MyCLib.h" />
+    <ClInclude Include="NewCpp.h" />
+    <ClInclude Include="TestSTL.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+</Project>
