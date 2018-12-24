@@ -1,6 +1,7 @@
 /********************************************************************
 	filename: 	NewCPP
 	purpose:	测试C++ 0X 最新标准
+	https://zh.cppreference.com/w/cpp
 	created:	2015/2/5
 	updated:	2015/2/5
 	author:		maple(周树青)	
@@ -105,7 +106,7 @@ void NewCPP::BeginTest()
 	{
 		int i = 3 + 4;
 		int a[] = {1,2,3,4,5};
-		//vector<int> vct = {1,2,3,4,5};
+		vector<int> vct = {1,2,3,4,5};
 
 		// 是否POD类型 
 		// POD类型可以安全的在C 和 C++之间相互操作
