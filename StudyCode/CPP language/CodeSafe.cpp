@@ -10,6 +10,9 @@
 #include <time.h>
 #include <windows.h>
 
+// 为了编译通过VS2015
+#pragma warning(disable:4996)
+
 // 整数范围定义
 #include "limits.h"
 
@@ -21,6 +24,8 @@
 #include <map>
 #include <string>
 using namespace std;
+
+
 
 /// \brief  获得64位的当前时间,精确到ms，注意获取到的是UTC时间
 __time64_t util_get_time_64()
@@ -471,7 +476,7 @@ bool SafeTest()
 		printf("a = %s", a);\
 
 		// 直接数组越界 
-		a[16] = 'a';
+		// a[16] = 'a';
 	}
 
 	// gets
@@ -563,7 +568,7 @@ bool SafeTest()
 	{
 		char a[2];
 		strcpy(a, "abcde"); 
-		a[5] = 's';
+		// a[5] = 's';
 
 		// 无结束符号 错误结果
 		int str_count = strlen(a);

@@ -15,6 +15,8 @@
 #include <assert.h> 
 #include <set>
 
+// 为了通过编译器VS2015
+#pragma warning(disable:4996)
 
 #include<windows.h>
 #include<winbase.h>

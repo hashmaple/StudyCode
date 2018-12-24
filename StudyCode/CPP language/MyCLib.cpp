@@ -17,6 +17,8 @@
 #include <time.h>   // 时间库
 #include <stdlib.h> // 标准工具库
 
+#pragma warning(disable:4996)
+
 #include <string>
 using namespace std;
 

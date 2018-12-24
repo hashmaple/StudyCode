@@ -194,7 +194,7 @@ void MySTL::BeginTest()
 		for (int i = 0; i < 1000; i++)
 		{
 			char buf[16] = {0};
-			_itoa(i, buf, 10);
+			_itoa_s(i, buf, 10);
 
 			mapTest[buf] = i;
 		}
@@ -501,7 +501,7 @@ void MySTL::BeginTest()
 		file.getline(str,64);
 
 		FILE* fp;
-		fp = fopen("2.txt", "w+");
+		fopen_s(&fp, "2.txt", "w+");
 		fprintf(fp, "%s", "¾ÅÒõÕæ¾­");
 		fclose(fp);
 	}
