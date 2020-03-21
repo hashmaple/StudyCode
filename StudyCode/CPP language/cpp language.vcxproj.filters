@@ -4,9 +4,6 @@
     <ClCompile Include="CPP98.cpp">
       <Filter>C++98</Filter>
     </ClCompile>
-    <ClCompile Include="NewCpp.cpp">
-      <Filter>C++11</Filter>
-    </ClCompile>
     <ClCompile Include="MyCLib.cpp">
       <Filter>lib&amp;DLL</Filter>
     </ClCompile>
@@ -16,11 +13,29 @@
     <ClCompile Include="TestSTL.cpp">
       <Filter>C++98</Filter>
     </ClCompile>
-    <ClCompile Include="C++11.cpp">
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="C++11\C++11.cpp">
       <Filter>C++11</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="NewFeatures.cpp">
+    <ClCompile Include="C++11\NewCpp.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\NewFeatures.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\GeneralUtilities.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\STLContainer.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\FunAndLambda.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\C++11String.cpp">
+      <Filter>C++11</Filter>
+    </ClCompile>
+    <ClCompile Include="C++11\MultiThread.cpp">
       <Filter>C++11</Filter>
     </ClCompile>
   </ItemGroup>
@@ -28,9 +43,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="CPP98.h">
       <Filter>C++98</Filter>
-    </ClInclude>
-    <ClInclude Include="NewCpp.h">
-      <Filter>C++11</Filter>
     </ClInclude>
     <ClInclude Include="MyCLib.h">
       <Filter>lib&amp;DLL</Filter>
@@ -41,10 +53,28 @@
     <ClInclude Include="TestSTL.h">
       <Filter>C++98</Filter>
     </ClInclude>
-    <ClInclude Include="C++11.h">
+    <ClInclude Include="C++11\C++11.h">
       <Filter>C++11</Filter>
     </ClInclude>
-    <ClInclude Include="NewFeatures.h">
+    <ClInclude Include="C++11\NewCpp.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\NewFeatures.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\GeneralUtilities.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\STLContainer.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\FunAndLambda.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\C++11String.h">
+      <Filter>C++11</Filter>
+    </ClInclude>
+    <ClInclude Include="C++11\MultiThread.h">
       <Filter>C++11</Filter>
     </ClInclude>
   </ItemGroup>

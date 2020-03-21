@@ -8,6 +8,7 @@
 // 版权所有:	苏州蜗牛数字科技股份有限公司
 //--------------------------------------------------------------------
 #include "CPP98.h"
+
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
@@ -34,7 +35,9 @@ using namespace std;
 #define to_string( s ) #s
 
 // 连接前后内容
-#define concatenate( x, y ) x##y
+#define abc 100
+
+#define concatenate( a, b ) a##b
 
 // 返回绝对值
 #define absolute_value( x ) ( ((x) < 0) ? -(x) : (x) )
@@ -76,13 +79,14 @@ void exit_function(void)
 void CPP98::BeginTest()
 {
 	// 基础语法 宏 预定义变量  #pragma 
-	if (false)
+	if (0)
 	{
 		cout << to_string(HEELO MAPLE!) << endl;
 
 
 		int xy = 10;
-		cout << "print the xy value = " << concatenate(x, y) << endl;
+		cout << "print the abc value = " << abc << endl; 
+		cout << "print the xy value = " << concatenate(x, y) << endl; // print the xy value = 10;
 
 		cout << "absolute_value is " << absolute_value(-10) << endl;
 

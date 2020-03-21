@@ -20,7 +20,7 @@ using namespace std;
 #include <pthread.h>
 
 // 2 加载lib链接库 也可以包含在 链接器->输入->附加依赖项
-//#pragma comment(lib, "pthreadVC2.lib")
+#pragma comment(lib, "pthreadVC2.lib")
 
 // 3 将dll文件拷贝到生成的.exe所在的文件夹中
 
@@ -68,7 +68,7 @@ void Testthread::BeginTest()
 {
 
 	// 测试最近简单的函数
-	if (false)
+	if (0)
 	{
 		pthread_t tid1, tid2;
 		int a = 1;
@@ -96,7 +96,7 @@ void Testthread::BeginTest()
 		printf("main thread exit\n");
 	}
 
-	if (false)
+	if (0)
 	{
 		cout << "====begin===== " << endl;
 

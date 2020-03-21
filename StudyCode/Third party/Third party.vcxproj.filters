@@ -4,9 +4,29 @@
     <ClCompile Include="MyBoost.cpp" />
     <ClCompile Include="Testthread.cpp" />
     <ClCompile Include="thirdparty.cpp" />
+    <ClCompile Include="json\jsoncpp.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\Testjson.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
     <ClInclude Include="Testthread.h" />
+    <ClInclude Include="json\json.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json-forwards.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\Testjson.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Json">
+      <UniqueIdentifier>{9bf589de-b62b-43e5-8fbb-c480af4f887a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

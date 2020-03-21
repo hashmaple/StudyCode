@@ -167,7 +167,6 @@ void NewCPP::BeginTest()
 			char j;
 			int k;
 			char m;
-
 		};
 
 		cout << " sizeof(MyStruct)  " << sizeof(MyStruct) << endl; // align

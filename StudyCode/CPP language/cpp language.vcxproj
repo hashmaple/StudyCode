@@ -19,22 +19,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C++11.cpp" />
+    <ClCompile Include="C++11\C++11String.cpp" />
+    <ClCompile Include="C++11\FunAndLambda.cpp" />
+    <ClCompile Include="C++11\MultiThread.cpp" />
+    <ClCompile Include="C++11\STLContainer.cpp" />
+    <ClCompile Include="C++11\C++11.cpp" />
+    <ClCompile Include="C++11\GeneralUtilities.cpp" />
+    <ClCompile Include="C++11\NewCpp.cpp" />
+    <ClCompile Include="C++11\NewFeatures.cpp" />
     <ClCompile Include="CodeSafe.cpp" />
     <ClCompile Include="CPP98.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyCLib.cpp" />
-    <ClCompile Include="NewCpp.cpp" />
-    <ClCompile Include="NewFeatures.cpp" />
     <ClCompile Include="TestSTL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C++11.h" />
+    <ClInclude Include="C++11\C++11String.h" />
+    <ClInclude Include="C++11\FunAndLambda.h" />
+    <ClInclude Include="C++11\MultiThread.h" />
+    <ClInclude Include="C++11\STLContainer.h" />
+    <ClInclude Include="C++11\C++11.h" />
+    <ClInclude Include="C++11\GeneralUtilities.h" />
+    <ClInclude Include="C++11\NewCpp.h" />
+    <ClInclude Include="C++11\NewFeatures.h" />
     <ClInclude Include="CodeSafe.h" />
     <ClInclude Include="CPP98.h" />
     <ClInclude Include="MyCLib.h" />
-    <ClInclude Include="NewCpp.h" />
-    <ClInclude Include="NewFeatures.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />
   </ItemGroup>
