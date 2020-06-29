@@ -420,6 +420,15 @@ void MySTL::BeginTest()
 		string zsqsqs = "asdasd";
 		zsqsqs += 123456;
 		str += 123456;
+		
+		// C++11以后 c_str和data保持一致，都包含结束符
+		if (!zsqsqs.empty())
+		{
+			char* p = (char*)zsqsqs.c_str();
+			char* q = (char*)zsqsqs.data();
+			p[2] = ' ';
+			q[3] = ' ';
+		}
 
 		//寻找
 		std::wstring::size_type Idx1 = str.find(L"qk");

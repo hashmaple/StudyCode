@@ -67,8 +67,9 @@ void Testjson::BeginTest()
 	}
 
 	// 字符串解析
-	if (0)
+	if (1)
 	{
+		// 空字符串会解析失败
 		string str = "{\"name\": \"JSON NAME\",\"code\": 100,\"msg\": \"\",\"files\": \"\"}";
 
 		Json::Reader reader;
@@ -76,6 +77,12 @@ void Testjson::BeginTest()
 		if (!reader.parse(str, root, false))
 		{
 			return;
+		}
+
+		// 二维查找值  需要判断isArray 负责会崩溃。
+		if (root["name"].isArray() && !root["name"]["ABC"].isNull())
+		{
+			cout << root["name"]["ABC"].asString() << endl;
 		}
 
 		if (root["name"].isString())
@@ -90,7 +97,7 @@ void Testjson::BeginTest()
 	}
 
 	// 写入json
-	if (1)
+	if (0)
 	{
 		Json::Value root;
 

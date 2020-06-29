@@ -10,6 +10,10 @@
     <ClCompile Include="json\Testjson.cpp">
       <Filter>Json</Filter>
     </ClCompile>
+    <ClCompile Include="TestVMP.cpp" />
+    <ClCompile Include="VMProtect\SgpProtect.cpp">
+      <Filter>SGP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
@@ -23,10 +27,23 @@
     <ClInclude Include="json\Testjson.h">
       <Filter>Json</Filter>
     </ClInclude>
+    <ClInclude Include="TestVMP.h" />
+    <ClInclude Include="VMProtect\SGP.h">
+      <Filter>SGP</Filter>
+    </ClInclude>
+    <ClInclude Include="VMProtect\SgpProtect.h">
+      <Filter>SGP</Filter>
+    </ClInclude>
+    <ClInclude Include="VMProtect\VMProtectSDK.h">
+      <Filter>SGP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Json">
       <UniqueIdentifier>{9bf589de-b62b-43e5-8fbb-c480af4f887a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SGP">
+      <UniqueIdentifier>{c850e619-7130-4041-bb31-19885e1d6955}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

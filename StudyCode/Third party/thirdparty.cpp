@@ -4,6 +4,7 @@
 //#include "MyBoost.h"
 #include "Testthread.h"
 #include "json/Testjson.h"
+#include "TestVMP.h"
 
 int main()
 {
@@ -12,6 +13,9 @@ int main()
 
 	Testjson test_json;
 	test_json.BeginTest();
+
+	TestVMP test_vmp;
+	test_vmp.BeginTest();
 
 	int i;
 	std::cin >> i;

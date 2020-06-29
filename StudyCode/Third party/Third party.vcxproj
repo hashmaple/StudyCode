@@ -76,8 +76,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>pthread\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\StudyCode\StudyCode\Third party\pthread\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>pthread\include;VMProtect;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\StudyCode\StudyCode\Third party\pthread\lib\x64;G:\StudyCode\StudyCode\Third party\VMProtect;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -108,7 +108,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -157,9 +157,11 @@
   <ItemGroup>
     <ClCompile Include="json\jsoncpp.cpp" />
     <ClCompile Include="json\Testjson.cpp" />
+    <ClCompile Include="TestVMP.cpp" />
     <ClCompile Include="thirdparty.cpp" />
     <ClCompile Include="MyBoost.cpp" />
     <ClCompile Include="Testthread.cpp" />
+    <ClCompile Include="VMProtect\SgpProtect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json\json-forwards.h" />
@@ -167,6 +169,10 @@
     <ClInclude Include="json\Testjson.h" />
     <ClInclude Include="MyBoost.h" />
     <ClInclude Include="Testthread.h" />
+    <ClInclude Include="TestVMP.h" />
+    <ClInclude Include="VMProtect\SGP.h" />
+    <ClInclude Include="VMProtect\SgpProtect.h" />
+    <ClInclude Include="VMProtect\VMProtectSDK.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
