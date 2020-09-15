@@ -5,6 +5,7 @@
 #include "Testthread.h"
 #include "json/Testjson.h"
 #include "TestVMP.h"
+#include "TestLua.h"
 
 int main()
 {
@@ -16,6 +17,9 @@ int main()
 
 	TestVMP test_vmp;
 	test_vmp.BeginTest();
+
+	TestLua test_lua;
+	test_lua.BeginTest();
 
 	int i;
 	std::cin >> i;

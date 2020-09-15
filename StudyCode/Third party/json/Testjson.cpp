@@ -67,7 +67,7 @@ void Testjson::BeginTest()
 	}
 
 	// ×Ö·û´®½âÎö
-	if (1)
+	if (0)
 	{
 		// ¿Õ×Ö·û´®»á½âÎöÊ§°Ü
 		string str = "{\"name\": \"JSON NAME\",\"code\": 100,\"msg\": \"\",\"files\": \"\"}";

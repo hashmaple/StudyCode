@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>pthread\include;VMProtect;$(IncludePath)</IncludePath>
+    <IncludePath>pthread\include;VMProtect;lua;$(IncludePath)</IncludePath>
     <LibraryPath>G:\StudyCode\StudyCode\Third party\pthread\lib\x64;G:\StudyCode\StudyCode\Third party\VMProtect;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,6 +114,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\StudyCode\StudyCode\Third party\pthread\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,6 +158,39 @@
   <ItemGroup>
     <ClCompile Include="json\jsoncpp.cpp" />
     <ClCompile Include="json\Testjson.cpp" />
+    <ClCompile Include="lua\lapi.c" />
+    <ClCompile Include="lua\lauxlib.c" />
+    <ClCompile Include="lua\lbaselib.c" />
+    <ClCompile Include="lua\lcode.c" />
+    <ClCompile Include="lua\lcorolib.c" />
+    <ClCompile Include="lua\lctype.c" />
+    <ClCompile Include="lua\ldblib.c" />
+    <ClCompile Include="lua\ldebug.c" />
+    <ClCompile Include="lua\ldo.c" />
+    <ClCompile Include="lua\ldump.c" />
+    <ClCompile Include="lua\lfunc.c" />
+    <ClCompile Include="lua\lgc.c" />
+    <ClCompile Include="lua\linit.c" />
+    <ClCompile Include="lua\liolib.c" />
+    <ClCompile Include="lua\llex.c" />
+    <ClCompile Include="lua\lmathlib.c" />
+    <ClCompile Include="lua\lmem.c" />
+    <ClCompile Include="lua\loadlib.c" />
+    <ClCompile Include="lua\lobject.c" />
+    <ClCompile Include="lua\lopcodes.c" />
+    <ClCompile Include="lua\loslib.c" />
+    <ClCompile Include="lua\lparser.c" />
+    <ClCompile Include="lua\lstate.c" />
+    <ClCompile Include="lua\lstring.c" />
+    <ClCompile Include="lua\lstrlib.c" />
+    <ClCompile Include="lua\ltable.c" />
+    <ClCompile Include="lua\ltablib.c" />
+    <ClCompile Include="lua\ltm.c" />
+    <ClCompile Include="lua\lundump.c" />
+    <ClCompile Include="lua\lutf8lib.c" />
+    <ClCompile Include="lua\lvm.c" />
+    <ClCompile Include="lua\lzio.c" />
+    <ClCompile Include="TestLua.cpp" />
     <ClCompile Include="TestVMP.cpp" />
     <ClCompile Include="thirdparty.cpp" />
     <ClCompile Include="MyBoost.cpp" />
@@ -167,12 +201,44 @@
     <ClInclude Include="json\json-forwards.h" />
     <ClInclude Include="json\json.h" />
     <ClInclude Include="json\Testjson.h" />
+    <ClInclude Include="lua\lapi.h" />
+    <ClInclude Include="lua\lauxlib.h" />
+    <ClInclude Include="lua\lcode.h" />
+    <ClInclude Include="lua\lctype.h" />
+    <ClInclude Include="lua\ldebug.h" />
+    <ClInclude Include="lua\ldo.h" />
+    <ClInclude Include="lua\lfunc.h" />
+    <ClInclude Include="lua\lgc.h" />
+    <ClInclude Include="lua\ljumptab.h" />
+    <ClInclude Include="lua\llex.h" />
+    <ClInclude Include="lua\llimits.h" />
+    <ClInclude Include="lua\lmem.h" />
+    <ClInclude Include="lua\lobject.h" />
+    <ClInclude Include="lua\lopcodes.h" />
+    <ClInclude Include="lua\lopnames.h" />
+    <ClInclude Include="lua\lparser.h" />
+    <ClInclude Include="lua\lprefix.h" />
+    <ClInclude Include="lua\lstate.h" />
+    <ClInclude Include="lua\lstring.h" />
+    <ClInclude Include="lua\ltable.h" />
+    <ClInclude Include="lua\ltm.h" />
+    <ClInclude Include="lua\lua.h" />
+    <ClInclude Include="lua\lua.hpp" />
+    <ClInclude Include="lua\luaconf.h" />
+    <ClInclude Include="lua\lualib.h" />
+    <ClInclude Include="lua\lundump.h" />
+    <ClInclude Include="lua\lvm.h" />
+    <ClInclude Include="lua\lzio.h" />
     <ClInclude Include="MyBoost.h" />
+    <ClInclude Include="TestLua.h" />
     <ClInclude Include="Testthread.h" />
     <ClInclude Include="TestVMP.h" />
     <ClInclude Include="VMProtect\SGP.h" />
     <ClInclude Include="VMProtect\SgpProtect.h" />
     <ClInclude Include="VMProtect\VMProtectSDK.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lua\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
