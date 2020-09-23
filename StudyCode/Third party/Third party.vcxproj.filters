@@ -111,6 +111,11 @@
       <Filter>Lua</Filter>
     </ClCompile>
     <ClCompile Include="TestLua.cpp" />
+    <ClCompile Include="TestPython.cpp" />
+    <ClCompile Include="MD5\md5.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLibcurl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
@@ -219,6 +224,15 @@
       <Filter>Lua</Filter>
     </ClInclude>
     <ClInclude Include="TestLua.h" />
+    <ClInclude Include="TestPython.h" />
+    <ClInclude Include="python38\include\Python.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5\md5.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLibcurl.h" />
+    <ClInclude Include="libcurl\libcurl_7.52.1\include\curl.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Json">
@@ -229,6 +243,12 @@
     </Filter>
     <Filter Include="Lua">
       <UniqueIdentifier>{c0abf147-49da-4624-8599-547d03e9ad76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Python">
+      <UniqueIdentifier>{797a48a5-3ac2-4ef0-b86a-058bf30b48f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{99e95157-2869-45a5-a319-12101ccb3504}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

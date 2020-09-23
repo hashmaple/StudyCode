@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>pthread\include;VMProtect;lua;$(IncludePath)</IncludePath>
+    <IncludePath>pthread\include;VMProtect;lua;python38\include;libcurl\include;$(IncludePath)</IncludePath>
     <LibraryPath>G:\StudyCode\StudyCode\Third party\pthread\lib\x64;G:\StudyCode\StudyCode\Third party\VMProtect;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,11 +110,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>F:\StudyCode\StudyCode\Third party\pthread\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>pthread\lib\x64;python38\libs;libcurl\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>python38.lib;libcurld.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -190,7 +192,10 @@
     <ClCompile Include="lua\lutf8lib.c" />
     <ClCompile Include="lua\lvm.c" />
     <ClCompile Include="lua\lzio.c" />
+    <ClCompile Include="MD5\md5.cpp" />
+    <ClCompile Include="TestLibcurl.cpp" />
     <ClCompile Include="TestLua.cpp" />
+    <ClCompile Include="TestPython.cpp" />
     <ClCompile Include="TestVMP.cpp" />
     <ClCompile Include="thirdparty.cpp" />
     <ClCompile Include="MyBoost.cpp" />
@@ -201,6 +206,7 @@
     <ClInclude Include="json\json-forwards.h" />
     <ClInclude Include="json\json.h" />
     <ClInclude Include="json\Testjson.h" />
+    <ClInclude Include="libcurl\libcurl_7.52.1\include\curl.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
     <ClInclude Include="lua\lcode.h" />
@@ -229,8 +235,12 @@
     <ClInclude Include="lua\lundump.h" />
     <ClInclude Include="lua\lvm.h" />
     <ClInclude Include="lua\lzio.h" />
+    <ClInclude Include="MD5\md5.h" />
     <ClInclude Include="MyBoost.h" />
+    <ClInclude Include="python38\include\Python.h" />
+    <ClInclude Include="TestLibcurl.h" />
     <ClInclude Include="TestLua.h" />
+    <ClInclude Include="TestPython.h" />
     <ClInclude Include="Testthread.h" />
     <ClInclude Include="TestVMP.h" />
     <ClInclude Include="VMProtect\SGP.h" />

@@ -6,6 +6,8 @@
 #include "json/Testjson.h"
 #include "TestVMP.h"
 #include "TestLua.h"
+#include "TestPython.h"
+#include "TestLibcurl.h"
 
 int main()
 {
@@ -20,6 +22,12 @@ int main()
 
 	TestLua test_lua;
 	test_lua.BeginTest();
+
+	TestPython test_python;
+	test_python.BeginTest();
+
+	TestLibcurl test_libcurl;
+	test_libcurl.BeginTest();
 
 	int i;
 	std::cin >> i;

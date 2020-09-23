@@ -8,6 +8,8 @@
 //--------------------------------------------------------------------
 #pragma once
 
+// Lua教程（一）：在C++中嵌入Lua脚本
+// 参考地址：https://www.jb51.net/article/55471.htm
 class TestLua
 {
 public:
