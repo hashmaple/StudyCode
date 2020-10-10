@@ -38,6 +38,9 @@
     <ClCompile Include="C++11\MultiThread.cpp">
       <Filter>C++11</Filter>
     </ClCompile>
+    <ClCompile Include="C++14\C++14.cpp">
+      <Filter>C++14</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -77,6 +80,9 @@
     <ClInclude Include="C++11\MultiThread.h">
       <Filter>C++11</Filter>
     </ClInclude>
+    <ClInclude Include="C++14\C++14.h">
+      <Filter>C++14</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -90,6 +96,9 @@
     </Filter>
     <Filter Include="Safe&amp;Performance">
       <UniqueIdentifier>{674e72e0-300a-4073-bc74-4ce71e7612f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C++14">
+      <UniqueIdentifier>{055e51c5-b8b5-4a5f-98ff-14c72d0c9076}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -79,7 +79,7 @@ void exit_function(void)
 void CPP98::BeginTest()
 {
 	// 基础语法 宏 预定义变量  #pragma 
-	if (1)
+	if (0)
 	{
 		cout << to_string(HEELO MAPLE!) << endl;
 

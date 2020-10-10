@@ -132,6 +132,14 @@ void MySTL::BeginTest()
 	// ×Ö·û´®
 	if (BTEST_SIGN)
 	{
+		// ×Ö·û´®µÄ×Ö·û¼¯
+		// ASCII
+		char ca[4] = "abc";
+		// GB2312
+		char cu[4] = "Áª";
+		// UNICODE
+		wchar_t cun[4] = L"Áª";
+
 		string s1("testTeSt");
 		string s2(10, 'z');
 		string s3;
