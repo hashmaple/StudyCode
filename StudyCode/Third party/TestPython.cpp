@@ -79,7 +79,7 @@ void TestPython::BeginTest()
 		PyRun_SimpleString("print('hello world! form C++')");
 
 		// 加载PY脚本
-		PyObject*  pModule = PyImport_ImportModule("testpython");  //参数为Python脚本的文件名
+		PyObject*  pModule = PyImport_ImportModule("testpython");
 		if (!pModule)
 		{
 			printf("导入Python模块失败...\n");

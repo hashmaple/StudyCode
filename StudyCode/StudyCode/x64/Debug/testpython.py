@@ -9,10 +9,24 @@ def PyHello():
 def PyAdd(a,b):
     return a+b
     
-input("\n\n按下 enter 键后退出。")
-import os
-os.system("cls")
-
+class MyClass:
+    i = 12345
+    
+    def greet(self, str):
+        print(str)
+        
+    
+    def f(self, num):
+        i = num
+        print(i)
+        return i
+ 
+# 实例化类
+x = MyClass()
+print("MyClass 类的属性 i 为：", x.i)
+print("MyClass 类的方法 f 输出为：", x.f(9527))
+print("MyClass 类的方法 greet 输出为：", x.greet("Hello Mike  中国人"))
+    
 # 以下为PYTHON的功能测试
 total = ['item_one', 'item_two', 'item_three',
         'item_four', 'item_five']
@@ -44,3 +58,6 @@ print ('命令行参数为:')
 for i in sys.argv:
     print (i)
 print ('\n python 路径为',sys.path)
+
+#import os
+#os.system("cls")

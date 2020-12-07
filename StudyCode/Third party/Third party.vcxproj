@@ -115,8 +115,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>pthread\lib\x64;python38\libs;libcurl\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>python38.lib;libcurld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>pthread\lib\x64;python38\libs;libcurl\lib\debug;VMProtect;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>python38.lib;libcurld.lib;VMProtectSDK64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -200,13 +200,11 @@
     <ClCompile Include="thirdparty.cpp" />
     <ClCompile Include="MyBoost.cpp" />
     <ClCompile Include="Testthread.cpp" />
-    <ClCompile Include="VMProtect\SgpProtect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json\json-forwards.h" />
     <ClInclude Include="json\json.h" />
     <ClInclude Include="json\Testjson.h" />
-    <ClInclude Include="libcurl\libcurl_7.52.1\include\curl.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
     <ClInclude Include="lua\lcode.h" />
@@ -243,11 +241,12 @@
     <ClInclude Include="TestPython.h" />
     <ClInclude Include="Testthread.h" />
     <ClInclude Include="TestVMP.h" />
-    <ClInclude Include="VMProtect\SGP.h" />
-    <ClInclude Include="VMProtect\SgpProtect.h" />
     <ClInclude Include="VMProtect\VMProtectSDK.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\StudyCode\x64\Debug\httpserver.py" />
+    <None Include="..\StudyCode\x64\Debug\test.lua" />
+    <None Include="..\StudyCode\x64\Debug\testpython.py" />
     <None Include="lua\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

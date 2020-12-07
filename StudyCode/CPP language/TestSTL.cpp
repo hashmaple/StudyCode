@@ -19,7 +19,7 @@
 using namespace std;
 
 // 测试标志
-BOOL BTEST_SIGN = FALSE;
+BOOL BTEST_SIGN = TRUE;
 
 MySTL::MySTL(void)
 {
@@ -130,15 +130,22 @@ void MySTL::BeginTest()
 	}
 
 	// 字符串
-	if (BTEST_SIGN)
+	if (1)
 	{
 		// 字符串的字符集
-		// ASCII
-		char ca[4] = "abc";
+		// ASCII(GB2312)
+		char ca[] = "abcabcabc";
+		auto i = (strlen(ca) + 1) * sizeof(char);
 		// GB2312
 		char cu[4] = "联";
+		i = sizeof(cu);
 		// UNICODE
 		wchar_t cun[4] = L"联";
+		i = sizeof(cun);
+
+		int iarr[5] = {1,2,3,4,5};
+		i = 5 * sizeof(int);
+
 
 		string s1("testTeSt");
 		string s2(10, 'z');

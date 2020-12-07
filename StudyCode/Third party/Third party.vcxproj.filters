@@ -11,9 +11,6 @@
       <Filter>Json</Filter>
     </ClCompile>
     <ClCompile Include="TestVMP.cpp" />
-    <ClCompile Include="VMProtect\SgpProtect.cpp">
-      <Filter>SGP</Filter>
-    </ClCompile>
     <ClCompile Include="lua\lapi.c">
       <Filter>Lua</Filter>
     </ClCompile>
@@ -130,14 +127,8 @@
       <Filter>Json</Filter>
     </ClInclude>
     <ClInclude Include="TestVMP.h" />
-    <ClInclude Include="VMProtect\SGP.h">
-      <Filter>SGP</Filter>
-    </ClInclude>
-    <ClInclude Include="VMProtect\SgpProtect.h">
-      <Filter>SGP</Filter>
-    </ClInclude>
     <ClInclude Include="VMProtect\VMProtectSDK.h">
-      <Filter>SGP</Filter>
+      <Filter>VMProtectSDK</Filter>
     </ClInclude>
     <ClInclude Include="lua\lapi.h">
       <Filter>Lua</Filter>
@@ -232,14 +223,10 @@
       <Filter>MD5</Filter>
     </ClInclude>
     <ClInclude Include="TestLibcurl.h" />
-    <ClInclude Include="libcurl\libcurl_7.52.1\include\curl.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Json">
       <UniqueIdentifier>{9bf589de-b62b-43e5-8fbb-c480af4f887a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SGP">
-      <UniqueIdentifier>{c850e619-7130-4041-bb31-19885e1d6955}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lua">
       <UniqueIdentifier>{c0abf147-49da-4624-8599-547d03e9ad76}</UniqueIdentifier>
@@ -250,10 +237,25 @@
     <Filter Include="MD5">
       <UniqueIdentifier>{99e95157-2869-45a5-a319-12101ccb3504}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VMProtectSDK">
+      <UniqueIdentifier>{c850e619-7130-4041-bb31-19885e1d6955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="脚本">
+      <UniqueIdentifier>{7ef40b01-2bce-4554-8613-f09a5e392f7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="lua\Makefile">
       <Filter>Lua</Filter>
+    </None>
+    <None Include="..\StudyCode\x64\Debug\testpython.py">
+      <Filter>脚本</Filter>
+    </None>
+    <None Include="..\StudyCode\x64\Debug\test.lua">
+      <Filter>脚本</Filter>
+    </None>
+    <None Include="..\StudyCode\x64\Debug\httpserver.py">
+      <Filter>脚本</Filter>
     </None>
   </ItemGroup>
 </Project>

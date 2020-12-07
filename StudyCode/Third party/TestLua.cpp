@@ -99,11 +99,14 @@ TestLua::~TestLua()
 void TestLua::BeginTest()
 {
 	// 测试MD5
-	if (1)
+	if (0)
 	{
+		cout << "==TestLua::测试MD5===" << endl;
+
 		// 使用字符串的内容做MD5值
 		char buff[64] = { 0 };
 		MD5String("mike is a boy!", buff, 64);
+		cout << "mike is a boy! md5: " << buff << endl;
 
 		// 使用文件的内容做MD5值  文件时间戳无用
 		char buff_file1[64] = { 0 };

@@ -26,8 +26,6 @@ using namespace std;
 // ²âÊÔº¯Êı
 bool MyCLibTest()
 {
-
-
 	// ¶¨Òå
 	int myint;
 	float myfloat;

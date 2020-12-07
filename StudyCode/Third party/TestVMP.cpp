@@ -16,9 +16,6 @@
 
 #include "VMProtectSDK.h"
 
-#include "SgpProtect.h"
-#include "SGP.h"
-
 /* 
 //开始保护处标记（对应于功能设置：反调试、内存保护等等）
 VMProtectBegin(const char *);
@@ -58,8 +55,6 @@ TestVMP::~TestVMP()
 // 对外接口
 void TestVMP::BeginTest()
 {
-
-	// 测试最近简单的函数
 	if (0)
 	{
 		VMProtectBegin("checkcrc");
@@ -88,20 +83,6 @@ void TestVMP::BeginTest()
 
 		VMProtectEnd();
 
-		
-
 		cout << "====end=====" << endl;
-	}
-
-	// 测试SGP
-	if (0)
-	{
-		BOOL bstart = StartProtect("http://10.200.30.76/", DEFAULTSTART);
-
-		cout << "====StartProtect===== " << bstart << endl;
-
-		// 设置账号角色
-		BOOL bsave = SaveUserInfo("zhousq", "wn0123", "mike", "9yzj", "89区");
-		cout << "====SaveUserInfo===== " << bsave << endl;
 	}
 }

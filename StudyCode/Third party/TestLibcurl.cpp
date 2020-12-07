@@ -69,6 +69,7 @@ void TestLibcurl::BeginTest()
 		fopen_s(&fp, "data.html", "ab+");
 		curl_easy_setopt(easy_handle, CURLOPT_WRITEDATA, fp);
 
+		// 设置表头和post内容
 		if (1)
 		{
 			// 设置表头，表头内容可能不同
@@ -81,8 +82,19 @@ void TestLibcurl::BeginTest()
 			curl_easy_setopt(easy_handle, CURLOPT_POST, 1);
 		}
 
+		// 超时时间
+		curl_easy_setopt(easy_handle, CURLOPT_TIMEOUT, 3);
+
+		// 传输时间和速度控制
+		curl_easy_setopt(easy_handle, CURLOPT_LOW_SPEED_TIME, 100);
+		curl_easy_setopt(easy_handle, CURLOPT_LOW_SPEED_LIMIT, 10);
+
 		// 执行数据请求
 		auto code = curl_easy_perform(easy_handle);
+		if (code != CURLE_OK)
+		{
+			cerr << "curl_easy_perform failed! return: " << code << endl;
+		}
 
 		// 释放资源
 		fclose(fp);
