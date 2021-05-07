@@ -53,11 +53,5 @@ void CPP11::BeginTest()
 	MultiThread multiThread;
 	multiThread.BeginTest();
 
-	int m = 100, n = 101;
-	int &k = m;
-	k = n;
-
-	
-
 	return;
 }

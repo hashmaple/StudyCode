@@ -37,6 +37,8 @@ TestPython::~TestPython()
 // 对外接口
 void TestPython::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 测试运行PYTHON脚本文件
 	if (0)
 	{

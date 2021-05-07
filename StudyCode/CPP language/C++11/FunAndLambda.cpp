@@ -102,6 +102,8 @@ public:
 // FunAndLambda
 void FunAndLambda::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 对象对象为排序规则
 	if (false)
 	{

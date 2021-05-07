@@ -20,6 +20,8 @@ using namespace std;
 // 对外接口
 void Testjson::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 文件解析JSON
 	if (0)
 	{

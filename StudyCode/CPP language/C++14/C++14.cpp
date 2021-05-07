@@ -51,6 +51,8 @@ using B = A<T, int>;
 // 对外接口
 void TestC14::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	if (0)
 	{
 		cout << "===TestC14::BeginTest===" << endl;

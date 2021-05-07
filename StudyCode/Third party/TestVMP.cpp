@@ -55,6 +55,8 @@ TestVMP::~TestVMP()
 // 对外接口
 void TestVMP::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	if (0)
 	{
 		VMProtectBegin("checkcrc");

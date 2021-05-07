@@ -21,4 +21,20 @@ public:
 
 	// 对外接口
 	void BeginTest();
+
+	// 为了支持dynamic_cast 增加虚函数
+	virtual int virFunc() 
+	{
+		return 1; 
+	}
+};
+
+// 子类
+class SonNewFeatures :public NewFeatures
+{
+public:
+	virtual int virFunc()
+	{
+		return 2;
+	}
 };

@@ -67,6 +67,8 @@ temp ReturnStr()
 // NewCPP
 void NewCPP::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// ²âÊÔÔ¤¶¨Òåºê
 	if (false)
 	{

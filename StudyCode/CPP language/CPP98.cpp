@@ -78,6 +78,8 @@ void exit_function(void)
 /////////////////////////////对外接口/////////////////////////////////////////////
 void CPP98::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 基础语法 宏 预定义变量  #pragma 
 	if (0)
 	{

@@ -16,10 +16,8 @@
 #include <ctime>
 #include <iterator>
 
-using namespace std;
-
 // 测试标志
-BOOL BTEST_SIGN = TRUE;
+BOOL BTEST_SIGN = FALSE;
 
 MySTL::MySTL(void)
 {
@@ -86,8 +84,10 @@ const char* PropNameArray[10] =
 // STL
 void MySTL::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// io
-	if (BTEST_SIGN)
+	if (0)
 	{
 		// 定义一个读写文件流 追加模式
 		fstream fs_m;
@@ -130,7 +130,7 @@ void MySTL::BeginTest()
 	}
 
 	// 字符串
-	if (1)
+	if (0)
 	{
 		// 字符串的字符集
 		// ASCII(GB2312)
@@ -578,7 +578,6 @@ void MySTL::BeginTest()
 		vct.push_back(1);
 		vct.push_back(2);
 		vct.push_back(1);
-		std::vector<int>::_Alloc alloc = vct.get_allocator();
 	}
 
 	//safe function

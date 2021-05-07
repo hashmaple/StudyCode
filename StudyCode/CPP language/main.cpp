@@ -12,6 +12,8 @@
 
 int main()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	SafeTest();
 	MyCLibTest();
 

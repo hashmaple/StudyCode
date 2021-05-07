@@ -37,6 +37,8 @@ GeneralUtilities::~GeneralUtilities(void)
 // GeneralUtilities
 void GeneralUtilities::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// pair 2个value视为一个单元
 	if (false)
 	{

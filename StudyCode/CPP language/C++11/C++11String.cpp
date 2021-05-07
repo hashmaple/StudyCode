@@ -26,6 +26,8 @@ using namespace std;
 // FunAndLambda
 void NewString::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// string
 	if (0)
 	{

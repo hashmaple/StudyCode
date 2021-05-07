@@ -9,8 +9,12 @@
 #include "TestPython.h"
 #include "TestLibcurl.h"
 
+using namespace std;
+
 int main()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	Testthread test_thread;
 	test_thread.BeginTest();
 

@@ -7,9 +7,6 @@
     <ClCompile Include="json\jsoncpp.cpp">
       <Filter>Json</Filter>
     </ClCompile>
-    <ClCompile Include="json\Testjson.cpp">
-      <Filter>Json</Filter>
-    </ClCompile>
     <ClCompile Include="TestVMP.cpp" />
     <ClCompile Include="lua\lapi.c">
       <Filter>Lua</Filter>
@@ -113,6 +110,7 @@
       <Filter>MD5</Filter>
     </ClCompile>
     <ClCompile Include="TestLibcurl.cpp" />
+    <ClCompile Include="json\Testjson.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
@@ -121,9 +119,6 @@
       <Filter>Json</Filter>
     </ClInclude>
     <ClInclude Include="json\json-forwards.h">
-      <Filter>Json</Filter>
-    </ClInclude>
-    <ClInclude Include="json\Testjson.h">
       <Filter>Json</Filter>
     </ClInclude>
     <ClInclude Include="TestVMP.h" />
@@ -223,6 +218,7 @@
       <Filter>MD5</Filter>
     </ClInclude>
     <ClInclude Include="TestLibcurl.h" />
+    <ClInclude Include="json\Testjson.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Json">

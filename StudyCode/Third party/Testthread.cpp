@@ -67,6 +67,8 @@ Testthread::~Testthread()
 void Testthread::BeginTest()
 {
 
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 测试最近简单的函数
 	if (0)
 	{

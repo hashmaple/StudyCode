@@ -98,6 +98,8 @@ TestLua::~TestLua()
 // 对外接口
 void TestLua::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// 测试MD5
 	if (0)
 	{

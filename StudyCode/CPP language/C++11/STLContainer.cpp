@@ -21,7 +21,6 @@
 
 #include <iostream>
 #include <set>
-#include <xfunctional>
 #include <map>
 #include <utility>
 #include <unordered_map>
@@ -50,6 +49,8 @@ STLContainer::~STLContainer(void)
 // NewFeatures
 void STLContainer::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// array 容器
 	if (0)
 	{
@@ -253,17 +254,14 @@ void STLContainer::BeginTest()
 		my_stack.push(4);
 		my_stack.push(5);
 		
-		PRINT_ELEMENTS(my_stack._Get_container());
 
 		// 弹出顶上的第一个元素5
 		cout << "top and pop: "<< my_stack.top() << endl;
 		my_stack.pop();
-		PRINT_ELEMENTS(my_stack._Get_container());
 
 		cout << "top and pop: " << my_stack.top() << endl;
 		my_stack.pop();
 		my_stack.push(6);
-		PRINT_ELEMENTS(my_stack._Get_container());
 	}
 
 	// Queue FIFO容器 先进先出 理解为排队上车 默认内部为deque.
@@ -276,17 +274,14 @@ void STLContainer::BeginTest()
 		my_queue.push(4);
 		my_queue.push(5);
 
-		PRINT_ELEMENTS(my_queue._Get_container());
 
 		// pop 第一个元素 1
 		cout << "front and pop: " << my_queue.front() << endl;
 		my_queue.pop();
-		PRINT_ELEMENTS(my_queue._Get_container());
 
 		// 队伍最后加上6
 		cout << "back is: " << my_queue.back() << endl;
 		my_queue.push(6);
-		PRINT_ELEMENTS(my_queue._Get_container());
 	}
 
 	// priority_queue容器 按优先级来排序,可提供自己的排序函数

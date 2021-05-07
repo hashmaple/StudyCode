@@ -20,12 +20,14 @@
 #pragma warning(disable:4996)
 
 #include <string>
+#include <iostream>
 using namespace std;
-
 
 // ²âÊÔº¯Êı
 bool MyCLibTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// ¶¨Òå
 	int myint;
 	float myfloat;

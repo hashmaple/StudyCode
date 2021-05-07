@@ -229,11 +229,7 @@ enum HideBarNameColor:unsigned int
 // ²âÊÔº¯Êı
 bool SafeTest()
 {
-
-	int* p = NULL;
-	free(p);
-
-
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
 	if (false)
 	{

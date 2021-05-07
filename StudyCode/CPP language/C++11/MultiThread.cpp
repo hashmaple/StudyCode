@@ -326,6 +326,8 @@ void AtomicConsumer()
 // MultiThread
 void MultiThread::BeginTest()
 {
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
 	// async and future 方便的使用异步方法
 	if (0)
 	{
