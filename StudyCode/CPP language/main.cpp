@@ -8,6 +8,7 @@
 #include "TestSTL.h"
 #include "C++11/C++11.h"
 #include "C++14/C++14.h"
+#include "C++17/C++17.h"
 
 
 int main()
@@ -32,6 +33,10 @@ int main()
 
 	TestC14 cpp14;
 	cpp14.BeginTest();
+
+	
+	TestC17 cpp17;
+	cpp17.BeginTest();
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;
 	int i;

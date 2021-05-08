@@ -338,8 +338,10 @@ void MySTL::BeginTest()
 
 		std::reverse(vctInt.begin(),vctInt.end());
 		SPRINT(vctInt);
-		std::random_shuffle(vctInt.begin(),vctInt.end());
+
+		//std::random_shuffle(vctInt.begin(),vctInt.end());
 		SPRINT(vctInt);
+
 		std::sort(vctInt.begin(),vctInt.end());
 		SPRINT(vctInt);
 	}
@@ -499,8 +501,6 @@ void MySTL::BeginTest()
 	}
 
 
-
-
 	//IOStream
 	if (BTEST_SIGN)
 	{
@@ -565,8 +565,8 @@ void MySTL::BeginTest()
 		copy(a, a+11, outit);
 
 		// 小于2的元素个数  和 不小于10的元素个数
-		cout << endl << count_if(a, a+11, bind2nd(less<int>(), 2));
-		cout << endl << count_if(a, a+11, not1(bind2nd(less<int>(), 10)));
+		//cout << endl << count_if(a, a+11, bind2nd(less<int>(), 2));
+		//cout << endl << count_if(a, a+11, not1(bind2nd(less<int>(), 10)));
 
 	}
 
@@ -745,7 +745,6 @@ power MySTL::sPower(power value)
 	}
 	return value * value;
 }
-
 
 // 返回STRING
 std::wstring MySTL::GetWString()

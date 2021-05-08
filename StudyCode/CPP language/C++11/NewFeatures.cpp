@@ -37,10 +37,21 @@ void NewFeatures::BeginTest()
 	cout << __FILE__ << "  " <<  __FUNCTION__ << endl;
 
 	// nullptr auto range-based for move
-	if (false)
+	if (0)
 	{
-		// nullptr 基础类型 不会转为整形,会转为各种指针类型. 
-		int *p = nullptr;
+		// nullptr 基础类型 不会转为整形,会转为各种指针类型.
+		// 可以用来避开NULL为0时候，调用int类型的重载函数
+		int* p = nullptr;
+
+		// 判断是否同类型
+		if (is_same<decltype(p), int*>::value)
+		{
+			cout << "decltype(p) ==  int*" << endl;
+		}
+
+		// constexpr 常量表达式 用于数组初始化等
+		constexpr int len = 1 + 1;
+		char arr[len];
 
 		// auto 类型自动推导. 原先意义为某变量是局部的.
 		auto i = 20;

@@ -28,6 +28,7 @@
     <ClCompile Include="C++11\NewCpp.cpp" />
     <ClCompile Include="C++11\NewFeatures.cpp" />
     <ClCompile Include="C++14\C++14.cpp" />
+    <ClCompile Include="C++17\C++17.cpp" />
     <ClCompile Include="CodeSafe.cpp" />
     <ClCompile Include="CPP98.cpp" />
     <ClCompile Include="main.cpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="C++11\NewCpp.h" />
     <ClInclude Include="C++11\NewFeatures.h" />
     <ClInclude Include="C++14\C++14.h" />
+    <ClInclude Include="C++17\C++17.h" />
     <ClInclude Include="CodeSafe.h" />
     <ClInclude Include="CPP98.h" />
     <ClInclude Include="MyCLib.h" />
@@ -134,6 +136,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,6 +153,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
