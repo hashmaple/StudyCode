@@ -62,7 +62,8 @@ void TestC17::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
-	if (1)
+	// if中存放临时变量 条件编译为常量 构造 委托和继承
+	if (0)
 	{
 		/* / if中存放临时变量 需要打开 C++语言标准  /std： c + + 17
 		vector<int> vct = { 1,2,3,4 };
@@ -90,7 +91,7 @@ void TestC17::BeginTest()
 		SubClass sub(3); // 用基类的构造函数
 		cout << "sub.v1 = " << sub.v1 << endl;
 		cout << "sub.v2 = " << sub.v2 << endl;
-
-
 	}
+
+	// 添加X86和X64的C++区别 [5/9/2021 zhousq]
 }
