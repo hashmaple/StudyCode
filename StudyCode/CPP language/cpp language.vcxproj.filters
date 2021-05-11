@@ -44,6 +44,9 @@
     <ClCompile Include="C++17\C++17.cpp">
       <Filter>C++17</Filter>
     </ClCompile>
+    <ClCompile Include="x86x64\x86x64.cpp">
+      <Filter>x86x64</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -89,6 +92,9 @@
     <ClInclude Include="C++17\C++17.h">
       <Filter>C++17</Filter>
     </ClInclude>
+    <ClInclude Include="x86x64\x86x64.h">
+      <Filter>x86x64</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -108,6 +114,9 @@
     </Filter>
     <Filter Include="C++17">
       <UniqueIdentifier>{bbd99e6e-11a4-4932-a6eb-1d054a4fd62b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="x86x64">
+      <UniqueIdentifier>{de78119d-08f9-4309-94f6-a48d02582fe6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@
 #include "C++11/C++11.h"
 #include "C++14/C++14.h"
 #include "C++17/C++17.h"
+#include "x86x64/x86x64.h"
 
 
 int main()
@@ -33,10 +34,12 @@ int main()
 
 	TestC14 cpp14;
 	cpp14.BeginTest();
-
 	
 	TestC17 cpp17;
 	cpp17.BeginTest();
+
+	x86x64 cpp3264;
+	cpp3264.BeginTest();
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;
 	int i;

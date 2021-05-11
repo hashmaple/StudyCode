@@ -69,15 +69,13 @@ void NewFeatures::BeginTest()
 		for (const auto& it : v) {} // it是常量引用,不可修改
 
 		// std::move() 搬迁语义 适用于变量搬迁后不再使用的情形.
-		int i_move = 1;
 		vector<int> v_int1{ 1,2,3,4 };
-		vector<int> v_int2(4);
+		vector<int> v_int2(2);
+
 		v_int2 = move(v_int1); // 直接移动内容过来,减少了一次复制消耗. 
+
 		v_int2.size(); // 4
 		v_int1.size(); // 0 处于未指定,但有效的状态 move后不用此容器,用法正确!
-
-					   // 字符串字面常量
-		cout << R"(/N)" << endl;
 	}
 	
 	// lambda

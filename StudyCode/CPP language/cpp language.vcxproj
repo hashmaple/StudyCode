@@ -34,6 +34,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyCLib.cpp" />
     <ClCompile Include="TestSTL.cpp" />
+    <ClCompile Include="x86x64\x86x64.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C++11\C++11String.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="MyCLib.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />
+    <ClInclude Include="x86x64\x86x64.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CF182ABB-AEFA-4AE7-A66D-05C323101D28}</ProjectGuid>

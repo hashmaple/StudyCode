@@ -51,25 +51,41 @@ void STLContainer::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
-	// array 容器
+	// array 容器 固定大小. 获取,判断等更友好
 	if (0)
 	{
 		// 元素不为0,注意
-		array<int, 10> x;
-		cout << x[1] << endl; // 随机数
+		array<int, 10> ArrayInt = {};
+
+		// 支持for_range,内部数据不为0
+		for (auto i : ArrayInt)
+		{
+			cout << "ArrayInt element = " << i << endl;
+		}
 
 		// 通过{},会初始化为0
-		array<int, 10> x1 = {1, 2, 3, 4};
+		array<int, 10> x1 = {1,2,3,4,5,9,8,7,6,0};
+		PRINT_ELEMENTS(x1);
+
+		// 通过sort+lambda排序
+		sort(x1.begin(), x1.end(), [](int a, int b) {return b < a; });
+		PRINT_ELEMENTS(x1);
+		
+		// 默认排序 递增
+		sort(x1.begin(), x1.end());
 		PRINT_ELEMENTS(x1);
 
 		// 获取大小
 		cout << x1.size() << endl;
 		cout << x1.max_size() << endl;
 
-		// 直接访问 不检查是否存在
-		cout << x1.front() << endl;
-		cout << x1.back() << endl;
-
+		// 直接访问 元素为空崩溃,要判断非空
+		array<int, 0> x2;
+		if (x2.empty())
+		{
+			cout << x2.front() << endl;
+			cout << x2.back() << endl;
+		}
 	}
 
 	// vector

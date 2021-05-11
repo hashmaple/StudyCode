@@ -42,20 +42,50 @@ public:
 	int v1=0, v2=0;
 	Base() { v1 = 1; };
 
+	// = delete 声明拒绝编译器生成构造
+	Base& operator=(const Base&) = delete;
+
 	// 委托给无参构造，再执行
 	Base(int v) :Base()
 	{
 		v2 = v;
 	}
+
+	virtual int foo(int i)
+	{
+		return i;
+	}
 };
 
-class SubClass:public Base
+// final明确终止继续继承和重载
+class SubClass final:public Base
 {
 public:
 	// 继承基类的构造函数
 	using Base::Base;
+
+	// override 明确重载
+	virtual int foo(int i) override
+	{
+		return i;
+	}
+
+	// override 明确重载报错，没有重写任何基类方法
+	// virtual int foo2(int i) override;
 };
 
+// 不可派生
+// class SubClass2 :public SubClass;
+
+// 强类型枚举
+enum class MyEnum : unsigned int
+{
+	value1,
+	value2,
+	// 可出现相等
+	value3 = 100,
+	value4 = 100
+};
 
 // 对外接口
 void TestC17::BeginTest()
@@ -93,5 +123,44 @@ void TestC17::BeginTest()
 		cout << "sub.v2 = " << sub.v2 << endl;
 	}
 
-	// 添加X86和X64的C++区别 [5/9/2021 zhousq]
+	// override  final delete
+	if (0)
+	{
+		// override 和 final 见上类里
+		
+		// = delete 声明拒绝编译器生成构造
+
+		// 强类型枚举 不可和数字转换
+		MyEnum e1 = MyEnum::value1;
+		MyEnum e2 = MyEnum::value2;
+		MyEnum e3 = MyEnum::value3;
+		MyEnum e4 = MyEnum::value4;
+
+		// 必须强转
+		cout << "e1 == " << (unsigned int)e1 << endl;
+		cout << "e2 == " << (unsigned int)e2 << endl;
+		cout << "e3 == " << (unsigned int)e3 << endl;
+
+		// e1 == 0 错误，不可直接判断
+
+		// 枚举之间，如果值相同，可以比较
+		if (e3 == e4)
+		{
+			cout << "e3 == e4 " << endl;
+		}
+
+		// case 标签值已经出现在此开关 所在行数 : 155 
+		switch (MyEnum::value3)
+		{
+		case MyEnum::value3:
+			cout << "switch MyEnum::value3" << endl;
+			break;
+		// case MyEnum::value4: 编译不过,因为值和value3相等
+			cout << "switch MyEnum::value4" << endl;
+			break;
+		default:
+			break;
+		}
+
+	}
 }

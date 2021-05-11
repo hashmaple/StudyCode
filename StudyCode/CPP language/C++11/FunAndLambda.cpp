@@ -104,6 +104,35 @@ void FunAndLambda::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
+	// Lambda表达式 二种传递方法 类似为匿名函数的特效
+	if (0)
+	{
+		// [捕获列表] (参数列表) mutable(可选)异常属性->返回类型 { 函数体}
+
+		// 传递对象
+		int value = 1;
+
+		// 1 值捕获  在创建的时候拷贝进入,非调用时. 输出1
+		auto transfer_value = [value]{return value;};
+		value = 2;
+		cout << "值传递 transfer_value[value] = " << transfer_value() << endl;
+
+		// 2 引用捕获 保存的是引用, 输出100
+		auto transfer_quote = [&value] {return value; };
+		value = 100;
+		cout << "引用传递 transfer_quote[&value] = " << transfer_quote() << endl;
+
+		// 3 symbol传递,自行推导哪些需要传递,用符号明确是值还是引用
+		int other_value = 10;
+		value = 1;
+		auto symbol_value1 = [=] {return value + other_value; };
+		value = 2;
+		auto symbol_value2 = [&] {return value + other_value; };
+		value = 3;
+		cout << "symbol传递 symbol_value1[=] = " << symbol_value1() << endl; // 11
+		cout << "symbol传递 symbol_value2[&] = " << symbol_value2() << endl; // 13
+	}
+
 	// 对象对象为排序规则
 	if (false)
 	{
