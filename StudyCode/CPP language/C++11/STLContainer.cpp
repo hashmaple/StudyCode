@@ -243,7 +243,8 @@ void STLContainer::BeginTest()
 		PRINT_MAP_ELEMENTS(Mymultimap);
 	}
 
-	// unordered_set/map
+	// unordered_set/map hash_map升级版本
+	// 对比参考:https://blog.csdn.net/stpeace/article/details/81283650
 	if (false)
 	{
 		unordered_map<string, int>UnorderedMap{ { "a", 1 },
@@ -317,6 +318,6 @@ void STLContainer::BeginTest()
 			my_priority_queue.pop();
 		}
 	}
-	
+
 	return;
 }
