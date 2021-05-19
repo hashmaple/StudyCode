@@ -64,9 +64,9 @@ void NewFeatures::BeginTest()
 		vector<string> vstr = { "zsq", "kyo" };
 
 		// range-based for循环
-		for (auto it : v) {} // 会赋值给it,产生一份副本
-		for (auto& it : v) { ++it; } // it是引用,可以修改
-		for (const auto& it : v) {} // it是常量引用,不可修改
+		for (auto element : v) {}			   // 会赋值给element,产生一份副本
+		for (auto& element : v) { ++element; } // element是引用,可以修改
+		for (const auto& element : v) {}	   // element是常量引用,不可修改
 
 		// std::move() 搬迁语义 适用于变量搬迁后不再使用的情形.
 		vector<int> v_int1{ 1,2,3,4 };

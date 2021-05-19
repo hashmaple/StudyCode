@@ -4,7 +4,7 @@
     <ClCompile Include="CPP98.cpp">
       <Filter>C++98</Filter>
     </ClCompile>
-    <ClCompile Include="MyCLib.cpp">
+    <ClCompile Include="TestCLib.cpp">
       <Filter>lib&amp;DLL</Filter>
     </ClCompile>
     <ClCompile Include="CodeSafe.cpp">
@@ -53,7 +53,7 @@
     <ClInclude Include="CPP98.h">
       <Filter>C++98</Filter>
     </ClInclude>
-    <ClInclude Include="MyCLib.h">
+    <ClInclude Include="TestCLib.h">
       <Filter>lib&amp;DLL</Filter>
     </ClInclude>
     <ClInclude Include="CodeSafe.h">

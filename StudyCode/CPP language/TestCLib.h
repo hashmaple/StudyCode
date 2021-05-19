@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// 文件名:		MyCLib
+// 文件名:		TestCLib
 // 内  容:		C语言库
 // 说  明:		
 // 创建日期:	2011年8月18日
@@ -8,17 +8,14 @@
 //--------------------------------------------------------------------
 #pragma once
 
+// 若无别人用,会被lib中函数覆盖
+class MyLibClass
+{
+public:
+	inline int GetNumber() { return 1; };
+};
 
 // 测试函数
-bool MyCLibTest();
+bool TestCLib();
 
-
-
-//// 定义
-//int myint;
-//float myfloat;
-//double mydouble;
-//
-//// 读取文件
-//FILE *pFile;
-//char mystr[256] = {};
+void TestMyStaticLib();

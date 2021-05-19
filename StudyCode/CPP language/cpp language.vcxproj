@@ -32,7 +32,7 @@
     <ClCompile Include="CodeSafe.cpp" />
     <ClCompile Include="CPP98.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MyCLib.cpp" />
+    <ClCompile Include="TestCLib.cpp" />
     <ClCompile Include="TestSTL.cpp" />
     <ClCompile Include="x86x64\x86x64.cpp" />
   </ItemGroup>
@@ -49,7 +49,7 @@
     <ClInclude Include="C++17\C++17.h" />
     <ClInclude Include="CodeSafe.h" />
     <ClInclude Include="CPP98.h" />
-    <ClInclude Include="MyCLib.h" />
+    <ClInclude Include="TestCLib.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />
     <ClInclude Include="x86x64\x86x64.h" />
@@ -143,6 +143,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>MyStaticLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// 文件名:		MyCLib
+// 文件名:		TestCLib
 // 内  容:		C语言库
 // 说  明:		https://zh.cppreference.com/w/cpp
 // 创建日期:	2011年8月18日
@@ -24,7 +24,7 @@
 using namespace std;
 
 // 测试函数
-bool MyCLibTest()
+bool TestCLib()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
@@ -235,4 +235,38 @@ bool MyCLibTest()
 	}
 
 	return true;
+}
+
+// 链接静态lib库 或者在 链接 输入中添加(测试需要,lib工程 生成后时间:copy操作)
+// #pragma comment(lib,"MyStaticLib.lib") 
+// 
+// 包含静态库中的函数声明和类声明
+#include "..\MyStaticLib\MyStaticLib.h"
+#include "..\MyStaticLib\MyLibClass.h"
+
+// 测试静态库
+void TestMyStaticLib()
+{
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
+	// 测试静态库
+	if (0)
+	{
+		// 调用静态库函数
+		cout << "call MyStaticLib.lib fnMyStaticLib:" << endl;
+
+		fnMyStaticLib();
+
+		cout << "call MyStaticLib.lib AddByStaticLib = " << AddByStaticLib(1, 2) << endl;
+
+		// 本类中再定义MyLibClass 会报错
+		// 其他处同时包含,优先link到谁用谁.只有一份MyLibClass.
+		// 若无别人用,会用lib中的定义
+		MyLibClass myclass;
+		cout << "call MyStaticLib.lib MyStaticLibClass GetNumber() = " 
+			<< myclass.GetNumber() << endl;
+
+		// 若调用,则报错	LNK1169	找到一个或多个多重定义的符号
+		// myclass.GetNumber2();
+	}
 }
