@@ -58,7 +58,7 @@ void STLContainer::BeginTest()
 		array<int, 10> ArrayInt = {};
 
 		// 支持for_range,内部数据不为0
-		for (auto i : ArrayInt)
+		for (auto& i : ArrayInt)
 		{
 			cout << "ArrayInt element = " << i << endl;
 		}
@@ -243,18 +243,19 @@ void STLContainer::BeginTest()
 		PRINT_MAP_ELEMENTS(Mymultimap);
 	}
 
-	// unordered_set/map hash_map升级版本
+	// unordered_set/map hash_map的升级版本 查询为常量时间 HASH函数消耗
 	// 对比参考:https://blog.csdn.net/stpeace/article/details/81283650
-	if (false)
+	if (0)
 	{
 		unordered_map<string, int>UnorderedMap{ { "a", 1 },
 		{ "b", 2 },
 		{ "c", 3 } };
-
+		
 		UnorderedMap["c"] = 4;
 		UnorderedMap["d"] = 5;
-		UnorderedMap.erase("b");
 		PRINT_MAP_ELEMENTS(UnorderedMap);
+
+		UnorderedMap.erase("b");
 
 		cout << "UnorderedMap.at(a) = " << UnorderedMap.at("a") << endl;
 		cout << "UnorderedMap.bucket_count = " << UnorderedMap.bucket_count() << endl;

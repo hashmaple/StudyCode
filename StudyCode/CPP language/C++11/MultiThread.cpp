@@ -22,7 +22,6 @@
 #include <mutex>
 #include <queue>
 
-
 using namespace std;
 
 // myallocate
@@ -166,7 +165,7 @@ timed_mutex TimedMutex;
 void printString(const string& str)
 {
 	// 锁定 在析构时释放
-	lock_guard<mutex> lock1(PrintMutex);
+	lock_guard<mutex> lockprint(PrintMutex);
 
 	// 单个打印字符
 	for (auto& it : str)
@@ -328,6 +327,15 @@ void MultiThread::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
+	if (0)
+	{
+		// 最短的线程
+		thread t( [](){cout << "thread short" << endl;} );
+
+		// 加入一个线程
+		t.join();
+	}
+
 	// async and future 方便的使用异步方法
 	if (0)
 	{
@@ -439,7 +447,7 @@ void MultiThread::BeginTest()
 		// 强制等待结束   或者 使用detach分离. 否则会报错
 		cout << "强制等待t1结束.  join :" << t1.get_id() << endl;
 
-		// 执行完t1.join 就会推出主线程. 而循环中开启的线程继续在后台执行.
+		// 执行完t1.join 就会退出主线程. 而循环中开启的线程继续在后台执行.
 		t1.join();
 
 		cout << "\nt1.join() 执行完毕" << endl;

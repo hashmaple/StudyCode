@@ -88,11 +88,13 @@ void NewString::BeginTest()
 
 		if (regex_match(numstr, reg1))
 		{
+			// .代表非换行外的单字符
 			cout << "regex_match  (..23.)find " << endl;
 		}
 
 		if (regex_match(numstr, reg2))
 		{
+			// *匹配前面的表达式0~N次
 			cout << "regex_match  (.*23.*)find " << endl;
 		}
 

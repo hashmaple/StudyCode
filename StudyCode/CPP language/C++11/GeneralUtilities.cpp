@@ -51,7 +51,7 @@ void GeneralUtilities::BeginTest()
 	}
 	
 
-	// tuple 不定数的数组,支持不同类型
+	// tuple 元祖 不定数的数组,支持不同类型 make_tuple get tie关键三个函数
 	if (false)
 	{
 		tuple<int, int, string> t1{ 1, 2, "no1" };
