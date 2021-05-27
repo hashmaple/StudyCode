@@ -24,6 +24,23 @@
 
 using namespace std;
 
+// 便于跨平台开发，可利用宏定义支持代码跨平台
+#ifndef __linux__
+#include "windows.h"
+#else
+#include "unistd.h"
+#endif
+
+// windows
+// printf("now pid is %d \n", GetCurrentProcessId());
+// printf("now tid is %d \n", GetCurrentThreadId());
+
+// linux
+// printf("now pid is %d \n", getpid());
+// printf("now tid is %d \n", gettid());
+
+
+
 // myallocate
 template<typename T>
 class MyAlloc
@@ -75,7 +92,7 @@ int queryNumber()
 	return num;
 }
 
-// 按随机间隔休眠和打印10个输入的字符 然后返回
+// 按随机间隔休眠和打印3个输入的字符 然后返回
 int dosomething(char c)
 {
 	// 随机数 使用c作为种子
@@ -83,7 +100,7 @@ int dosomething(char c)
 	uniform_int_distribution<int> id(10, 1000);
 
 	// 随机休息后 打印字符
-	for (int i = 0; i< 10; i++)
+	for (int i = 0; i< 3; i++)
 	{
 		int t = id(dre); 
 		this_thread::sleep_for(chrono::milliseconds(t));
@@ -91,7 +108,7 @@ int dosomething(char c)
 		cout.put(c).flush();
 	}
 
-	return c;
+	return 1;
 }
 
 // 同上,不过f为在函数内获取. 多个线程都可获取f.get()
@@ -148,12 +165,12 @@ void ModificationString(promise<string>& p)
 
 int func1()
 {
-	return dosomething('+');
+	return dosomething('1');
 }
 
 int func2()
 {
-	return dosomething('-');
+	return dosomething('2');
 }
 
 // 定义互斥体
@@ -164,10 +181,13 @@ timed_mutex TimedMutex;
 // 循环打印字符
 void printString(const string& str)
 {
-	// 锁定 在析构时释放
+	// 锁定 在析构时释放 RAII-Resource Acquisition Is Initialization
+	// RAII，也称为“资源获取就是初始化”，是c++等编程语言常用的管理资源、避免内存泄露的方法。
+	// 它保证在任何情况下，使用对象时先构造对象，最后析构对象。
 	lock_guard<mutex> lockprint(PrintMutex);
 
 	// 单个打印字符
+	cout << GetCurrentThreadId();
 	for (auto& it : str)
 	{
 		cout.put(it);
@@ -175,15 +195,36 @@ void printString(const string& str)
 	cout << endl;
 
 
-	// 判断能否LOCK 失败就返回FLASE
+	// 判断能否LOCK 失败就返回FLASE 最好少用,用lock_guard
 	if (PrintMutex1.try_lock())
 	{
-		cout << "PrintMutex1.try_lock() == T" << endl;
+		cout << GetCurrentThreadId()  << " PrintMutex1.try_lock() == T" << endl;
 		
 		// 成功后需要释放 下面2选1
 		PrintMutex1.unlock();
 		//lock_guard<mutex> lock2(PrintMutex1, adopt_lock);
 	}
+}
+
+int v = 1;
+void critical_section(int change_v) 
+{
+	static std::mutex mtx;
+
+	// 锁定 在析构时释放 RAII-Resource Acquisition Is Initialization
+	std::unique_lock<std::mutex> lock(mtx);
+	
+	v = change_v;
+	cout << GetCurrentThreadId() << " unique_lock v= " << v << std::endl;
+
+	// 解开锁 还可再锁.可在函数内分段LOCK
+	lock.unlock();
+
+	// 又可以再加锁,结束会自动析构解锁
+	//lock.lock();
+	v += 1;
+	cout << GetCurrentThreadId() << " lock.lock v= " << v << std::endl;
+	cout << GetCurrentThreadId() << " lock.lock v= " << v << std::endl;
 }
 
 // 用于once调用 只调用一次
@@ -327,17 +368,20 @@ void MultiThread::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
+	// 最短的线程
 	if (0)
 	{
-		// 最短的线程
 		thread t( [](){cout << "thread short" << endl;} );
 
-		// 加入一个线程
+		// 	1 waits for the thread to finish its execution
 		t.join();
+
+		// 2 将执行线程与线程对象分开，允许独立执行。线程退出后，将释放任何分配的资源
+		//t.detach();
 	}
 
 	// async and future 方便的使用异步方法
-	if (0)
+	if (1)
 	{
 		cout << "func1 in background func2 in foreground : " << endl;
 
@@ -345,24 +389,20 @@ void MultiThread::BeginTest()
 		future<int> result1 = async(func1);
 
 		// 明确以异步方式启动目标函数,如果无法启动.抛出异常.
-		//future<int> result1 = async(launch::async, func1);
+		future<int> result2 = async(launch::async, func1);
 
 		// 强制延缓调用,必须等到get启动
-		//future<int> result1 = async(launch::deferred, func1);
+		future<int> result3 = async(launch::deferred, func2);
 
-		// wait会强制执行后台异步线程.get也是
-		//result1.wait();
-
-		int result2 = func2();
+		// wait会强制执行后台异步线程.get也会强制并且拿到返回值
+		result1.wait();	// 要求result1执行完毕
+		result3.get();
 
 		// 调用get会让func1保证执行完毕.在单线程上也可以保证. get只能调用一次.
-		int result = result1.get() + result2;
-
-
-		cout << endl << "result1.get() + result2 = " << result << endl;
-
+		int result = result1.get() + func2(); // 1+1 只可获取一次get
+		cout << endl << "result1.get() + func2() = " << result << endl;
 		// 检查有效性  get之后就无效了
-		cout << "result1.valid() " << result1.valid() << endl;
+		cout << "result1.valid() = " << result1.valid() << endl;
 	}
 
 	// 2个异步任务测试案例
@@ -501,7 +541,7 @@ void MultiThread::BeginTest()
 		cout << "\nf.get() " << result << endl;
 	}
 
-	// MUTEX和LOCK 使用lock_guard
+	// MUTEX  lock_guard unique_lock
 	if (0)
 	{
 		// 3个线程,同时循环打印会导致乱! 加上lock_guard<mutex>
@@ -515,6 +555,12 @@ void MultiThread::BeginTest()
 		f3.get();
 
 		printString("Here is the main thread!");
+
+		// 测试unique_lock 加锁和解锁更灵活 可按需分段加锁
+		thread t1(critical_section, 1), t2(critical_section, 2), t3(critical_section, 3);
+		t1.detach();
+		t2.detach();
+		t3.detach();
 	}
 
 	// 只调用一次 初始化数据用途
@@ -569,6 +615,4 @@ void MultiThread::BeginTest()
 		myVct.pop_back();
 		myVct.clear();
 	}
-
-
 }

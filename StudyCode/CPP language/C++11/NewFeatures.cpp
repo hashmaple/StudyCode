@@ -144,7 +144,6 @@ void NewFeatures::BeginTest()
 		unique_pointer2.reset();
 		// 释放内存
 		unique_pointer2 == nullptr;
-		
 
 		// weak_ptr 配合shared_ptr而引入，解决shared_ptr的相互引用
 		// 不拥有资源的所有权，不能直接使用。无 * 和 ->
