@@ -25,8 +25,6 @@
 #include <string>
 using namespace std;
 
-
-
 /// \brief  获得64位的当前时间,精确到ms，注意获取到的是UTC时间
 __time64_t util_get_time_64()
 {
