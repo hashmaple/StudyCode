@@ -52,11 +52,27 @@ void GeneralUtilities::BeginTest()
 	
 
 	// tuple 元祖 不定数的数组,支持不同类型 make_tuple get tie关键三个函数
-	if (false)
+	if (1)
 	{
+		// 定义
 		tuple<int, int, string> t1{ 1, 2, "no1" };
-		cout << "tuple  get<0>(t1) = " << get<0>(t1) << " get<2>(t1) = " << get<2>(t1) << endl;
-		
+		// 类型推导
+		auto t2 = make_tuple(2, 4, "mike");
+
+		// 输出信息
+		cout << "tuple  get<0>(t1) = " << get<0>(t1) << endl;
+		cout << "tuple  get<1>(t1) = " << get<1>(t1) << endl;
+		cout << "tuple  get<2>(t1) = " << get<2>(t1) << endl;
+
+		// 拆包
+		int n1, n2;
+		string name;
+		tie(n1, n2, name) = t1;
+		cout << "n1 = " << n1 << endl;
+		cout << "n2 = " << n2 << endl;
+		cout << "name = " << name << endl;
+
+
 		auto b = make_tuple(1, 2, string{ "no1" }) == t1;
 		cout << "make_tuple() == t1 1 or 0 ? " << b << endl;
 	}
