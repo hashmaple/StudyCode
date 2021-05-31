@@ -51,8 +51,8 @@ void GeneralUtilities::BeginTest()
 	}
 	
 
-	// tuple 元祖 不定数的数组,支持不同类型 make_tuple get tie关键三个函数
-	if (1)
+	// tuple 元组 不定数的数组,支持不同类型 make_tuple get tie关键三个函数
+	if (0)
 	{
 		// 定义
 		tuple<int, int, string> t1{ 1, 2, "no1" };
@@ -72,9 +72,12 @@ void GeneralUtilities::BeginTest()
 		cout << "n2 = " << n2 << endl;
 		cout << "name = " << name << endl;
 
+		// 合并
+		auto new_t = tuple_cat(t1, t2);
 
-		auto b = make_tuple(1, 2, string{ "no1" }) == t1;
-		cout << "make_tuple() == t1 1 or 0 ? " << b << endl;
+		// 获取元组长度 (decltype 返回操作数的数据类型)
+		size_t sz = tuple_size<decltype(new_t)>::value;
+		cout << "tuple_size = " << sz << endl;
 	}
 	
 	// shared_ptr 共享式拥有指针

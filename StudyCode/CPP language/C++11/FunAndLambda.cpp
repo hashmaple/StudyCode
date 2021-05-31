@@ -325,7 +325,7 @@ void FunAndLambda::BeginTest()
 		PRINT_ELEMENTS(MyList);
 
 		// random_shuffle通用重新洗牌 其他还有三个方法.
-		random_shuffle(MyList.begin(), MyList.end());
+		 random_shuffle(MyList.begin(), MyList.end());
 		cout << "random_shuffle : ";
 		PRINT_ELEMENTS(MyList);
 

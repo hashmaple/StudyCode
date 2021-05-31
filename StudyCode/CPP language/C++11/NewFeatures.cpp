@@ -192,5 +192,13 @@ void NewFeatures::BeginTest()
 		cout << "str1 = " << str1 << endl;
 	}
 
+	// 其他杂项 字面量R
+	if (0)
+	{
+		// 包含特殊字符的字符串
+		std::string str = R"(C:\File\To\Path)";
+		std::cout << str << std::endl;
+	}
+
 	return;
 }

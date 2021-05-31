@@ -381,7 +381,7 @@ void MultiThread::BeginTest()
 	}
 
 	// async and future 方便的使用异步方法
-	if (1)
+	if (0)
 	{
 		cout << "func1 in background func2 in foreground : " << endl;
 

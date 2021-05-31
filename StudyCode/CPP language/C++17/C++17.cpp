@@ -1,10 +1,10 @@
-//--------------------------------------------------------------------
-// ÎÄ¼şÃû:		TestC17
-// ÄÚ  Èİ:		
-// Ëµ  Ã÷:		
-// ´´½¨ÈÕÆÚ:	2021Äê5ÔÂ7ÈÕ
-// ÕûÀíÈÕÆÚ:	2021Äê5ÔÂ7ÈÕ
-// ´´½¨ÈË:		Maple(ÖÜÊ÷Çà)
+ï»¿//--------------------------------------------------------------------
+// æ–‡ä»¶å:		TestC17
+// å†…  å®¹:		
+// è¯´  æ˜:		
+// åˆ›å»ºæ—¥æœŸ:	2021å¹´5æœˆ7æ—¥
+// æ•´ç†æ—¥æœŸ:	2021å¹´5æœˆ7æ—¥
+// åˆ›å»ºäºº:		Maple(å‘¨æ ‘é’)
 //--------------------------------------------------------------------
 #include "C++17.h"
 
@@ -13,13 +13,16 @@
 #include <windows.h>
 #include <string>
 #include <vector>
+
+#include <iostream>
+#include<filesystem>
 using namespace std;
 
-// ×Ô¶¯ÍÆµ¼·µ»ØÀàĞÍ
+// è‡ªåŠ¨æ¨å¯¼è¿”å›ç±»å‹
 template<typename T>
 auto addByType(const T& t)
 {
-	// Ìõ¼şÅĞ¶ÏÖĞ ±í´ïÊ½±àÒëÎª³£Á¿½á¹û
+	// æ¡ä»¶åˆ¤æ–­ä¸­ è¡¨è¾¾å¼ç¼–è¯‘ä¸ºå¸¸é‡ç»“æœ
 	if constexpr(is_integral<T>::value)
 	{
 		return t + 1;
@@ -31,9 +34,9 @@ auto addByType(const T& t)
 }
 
 
-// Ç¿ÖÆÊµÀı»¯
+// å¼ºåˆ¶å®ä¾‹åŒ–
 template class vector<int>;
-// ²»ÊµÀı»¯
+// ä¸å®ä¾‹åŒ–
 extern template class vector<bool>;
 
 class Base
@@ -42,10 +45,10 @@ public:
 	int v1=0, v2=0;
 	Base() { v1 = 1; };
 
-	// = delete ÉùÃ÷¾Ü¾ø±àÒëÆ÷Éú³É¹¹Ôì
+	// = delete å£°æ˜æ‹’ç»ç¼–è¯‘å™¨ç”Ÿæˆæ„é€ 
 	Base& operator=(const Base&) = delete;
 
-	// Î¯ÍĞ¸øÎŞ²Î¹¹Ôì£¬ÔÙÖ´ĞĞ
+	// å§”æ‰˜ç»™æ— å‚æ„é€ ï¼Œå†æ‰§è¡Œ
 	Base(int v) :Base()
 	{
 		v2 = v;
@@ -57,68 +60,68 @@ public:
 	}
 };
 
-// finalÃ÷È·ÖÕÖ¹¼ÌĞø¼Ì³ĞºÍÖØÔØ
+// finalæ˜ç¡®ç»ˆæ­¢ç»§ç»­ç»§æ‰¿å’Œé‡è½½
 class SubClass final:public Base
 {
 public:
-	// ¼Ì³Ğ»ùÀàµÄ¹¹Ôìº¯Êı
+	// ç»§æ‰¿åŸºç±»çš„æ„é€ å‡½æ•°
 	using Base::Base;
 
-	// override Ã÷È·ÖØÔØ
+	// override æ˜ç¡®é‡è½½
 	virtual int foo(int i) override
 	{
 		return i;
 	}
 
-	// override Ã÷È·ÖØÔØ±¨´í£¬Ã»ÓĞÖØĞ´ÈÎºÎ»ùÀà·½·¨
+	// override æ˜ç¡®é‡è½½æŠ¥é”™ï¼Œæ²¡æœ‰é‡å†™ä»»ä½•åŸºç±»æ–¹æ³•
 	// virtual int foo2(int i) override;
 };
 
-// ²»¿ÉÅÉÉú
+// ä¸å¯æ´¾ç”Ÿ
 // class SubClass2 :public SubClass;
 
-// Ç¿ÀàĞÍÃ¶¾Ù
+// å¼ºç±»å‹æšä¸¾
 enum class MyEnum : unsigned int
 {
 	value1,
 	value2,
-	// ¿É³öÏÖÏàµÈ
+	// å¯å‡ºç°ç›¸ç­‰
 	value3 = 100,
 	value4 = 100
 };
 
-// ¶ÔÍâ½Ó¿Ú
+// å¯¹å¤–æ¥å£
 void TestC17::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
-	// ifÖĞ´æ·ÅÁÙÊ±±äÁ¿ Ìõ¼ş±àÒëÎª³£Á¿ ¹¹Ôì Î¯ÍĞºÍ¼Ì³Ğ
+	// ifä¸­å­˜æ”¾ä¸´æ—¶å˜é‡ æ¡ä»¶ç¼–è¯‘ä¸ºå¸¸é‡ æ„é€  å§”æ‰˜å’Œç»§æ‰¿
 	if (0)
 	{
-		/* / ifÖĞ´æ·ÅÁÙÊ±±äÁ¿ ĞèÒª´ò¿ª C++ÓïÑÔ±ê×¼  /std£º c + + 17
+		/* / ifä¸­å­˜æ”¾ä¸´æ—¶å˜é‡ éœ€è¦æ‰“å¼€ C++è¯­è¨€æ ‡å‡†  /stdï¼š c + + 17
 		vector<int> vct = { 1,2,3,4 };
 		if (const vector<int>::iterator it = find(vct.begin(), vct.end(), 2); it!= vct.end())
 		{
 			*it = 1;
 		} */
 
-		// ½á¹¹»¯°ó¶¨
+		// ç»“æ„åŒ–ç»‘å®š
 		// tuple<int,double,string> [x,y,z] = make_tuple(1, 2.3, "123");
 		// cout << x << y << z << endl;
 
-		// ÈÃÅĞ¶ÏÌõ¼ş±àÒëÎª³£Á¿£¬Ğ§ÂÊ¸üºÃ
+		// è®©åˆ¤æ–­æ¡ä»¶ç¼–è¯‘ä¸ºå¸¸é‡ï¼Œæ•ˆç‡æ›´å¥½
 		cout << "addByType 1 = " << addByType(1) << endl;
 		cout << "addByType 1.1 = " << addByType(1.1f) << endl;
 		
-		// Á¬ĞøµÄ>>
+		// è¿ç»­çš„>>
 		vector<int> vctInt = { 1,2,3 };
 		vector<vector<int>> vctVctInt;
 
-		// ¹¹Ôì Î¯ÍĞºÍ¼Ì³Ğ
-		Base base(2); // Ê¹ÓÃÎ¯ÍĞ¹¹Ôì
+		// æ„é€  å§”æ‰˜å’Œç»§æ‰¿
+		Base base(2); // ä½¿ç”¨å§”æ‰˜æ„é€ 
 		cout << "base.v1 = " << base.v1 << endl;
 		cout << "base.v2 = " << base.v2 << endl;
-		SubClass sub(3); // ÓÃ»ùÀàµÄ¹¹Ôìº¯Êı
+		SubClass sub(3); // ç”¨åŸºç±»çš„æ„é€ å‡½æ•°
 		cout << "sub.v1 = " << sub.v1 << endl;
 		cout << "sub.v2 = " << sub.v2 << endl;
 	}
@@ -126,41 +129,75 @@ void TestC17::BeginTest()
 	// override  final delete
 	if (0)
 	{
-		// override ºÍ final ¼ûÉÏÀàÀï
+		// override å’Œ final è§ä¸Šç±»é‡Œ
 		
-		// = delete ÉùÃ÷¾Ü¾ø±àÒëÆ÷Éú³É¹¹Ôì
+		// = delete å£°æ˜æ‹’ç»ç¼–è¯‘å™¨ç”Ÿæˆæ„é€ 
 
-		// Ç¿ÀàĞÍÃ¶¾Ù ²»¿ÉºÍÊı×Ö×ª»»
+		// å¼ºç±»å‹æšä¸¾ ä¸å¯å’Œæ•°å­—è½¬æ¢
 		MyEnum e1 = MyEnum::value1;
 		MyEnum e2 = MyEnum::value2;
 		MyEnum e3 = MyEnum::value3;
 		MyEnum e4 = MyEnum::value4;
 
-		// ±ØĞëÇ¿×ª
+		// å¿…é¡»å¼ºè½¬
 		cout << "e1 == " << (unsigned int)e1 << endl;
 		cout << "e2 == " << (unsigned int)e2 << endl;
 		cout << "e3 == " << (unsigned int)e3 << endl;
 
-		// e1 == 0 ´íÎó£¬²»¿ÉÖ±½ÓÅĞ¶Ï
+		// e1 == 0 é”™è¯¯ï¼Œä¸å¯ç›´æ¥åˆ¤æ–­
 
-		// Ã¶¾ÙÖ®¼ä£¬Èç¹ûÖµÏàÍ¬£¬¿ÉÒÔ±È½Ï
+		// æšä¸¾ä¹‹é—´ï¼Œå¦‚æœå€¼ç›¸åŒï¼Œå¯ä»¥æ¯”è¾ƒ
 		if (e3 == e4)
 		{
 			cout << "e3 == e4 " << endl;
 		}
 
-		// case ±êÇ©ÖµÒÑ¾­³öÏÖÔÚ´Ë¿ª¹Ø ËùÔÚĞĞÊı : 155 
+		// case æ ‡ç­¾å€¼å·²ç»å‡ºç°åœ¨æ­¤å¼€å…³ æ‰€åœ¨è¡Œæ•° : 155 
 		switch (MyEnum::value3)
 		{
 		case MyEnum::value3:
 			cout << "switch MyEnum::value3" << endl;
 			break;
-		// case MyEnum::value4: ±àÒë²»¹ı,ÒòÎªÖµºÍvalue3ÏàµÈ
+		// case MyEnum::value4: ç¼–è¯‘ä¸è¿‡,å› ä¸ºå€¼å’Œvalue3ç›¸ç­‰
 			cout << "switch MyEnum::value4" << endl;
 			break;
 		default:
 			break;
 		}
+	}
 
+	// std::filesystem
+	if (0)
+	{
+		// path ç±»ï¼šè¯´ç™½äº†è¯¥ç±»åªæ˜¯å¯¹å­—ç¬¦ä¸²ï¼ˆè·¯å¾„ï¼‰è¿›è¡Œä¸€äº›å¤„ç†ï¼Œè¿™ä¹Ÿæ˜¯æ–‡ä»¶ç³»ç»Ÿçš„åŸºçŸ³ã€‚
+
+		// directory_entry ç±»ï¼šåŠŸå¦‚å…¶åï¼Œæ–‡ä»¶å…¥å£ï¼Œè¿™ä¸ªç±»æ‰çœŸæ­£æ¥è§¦æ–‡ä»¶ã€‚Â 
+
+		// directory_iterator ç±»ï¼šè·å–æ–‡ä»¶ç³»ç»Ÿç›®å½•ä¸­æ–‡ä»¶çš„è¿­ä»£å™¨å®¹å™¨ï¼Œå…¶å…ƒç´ ä¸ºÂ directory_entryå¯¹è±¡ï¼ˆå¯ç”¨äºéå†ç›®å½•ï¼‰
+
+		// file_status ç±»ï¼šç”¨äºè·å–å’Œä¿®æ”¹æ–‡ä»¶ï¼ˆæˆ–ç›®å½•ï¼‰çš„å±æ€§
+
+		/* path str("C:\\Windows");
+		//å¿…é¡»å…ˆæ£€æµ‹ç›®å½•æ˜¯å¦å­˜åœ¨æ‰èƒ½ä½¿ç”¨æ–‡ä»¶å…¥å£.
+		if (!exists(str))
+		{
+			return 1;
+		}
+
+		//æ–‡ä»¶å…¥å£
+		directory_entry entry(str);		
+
+		//è¿™é‡Œç”¨äº†C++11çš„å¼ºæšä¸¾ç±»å‹
+		if (entry.status().type() == file_type::directory)	
+			cout << "è¯¥è·¯å¾„æ˜¯ä¸€ä¸ªç›®å½•" << endl;
+
+		//æ–‡ä»¶å…¥å£å®¹å™¨
+		directory_iterator list(str);	        
+
+		//é€šè¿‡æ–‡ä»¶å…¥å£ï¼ˆitï¼‰è·å–pathå¯¹è±¡ï¼Œå†å¾—åˆ°pathå¯¹è±¡çš„æ–‡ä»¶åï¼Œå°†ä¹‹è¾“å‡º
+		for (auto& it : list)
+		{
+			cout << it.path().filename() << endl;
+		} */
 	}
 }
