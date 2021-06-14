@@ -47,6 +47,9 @@
     <ClCompile Include="x86x64\x86x64.cpp">
       <Filter>x86x64</Filter>
     </ClCompile>
+    <ClCompile Include="DataStruct\DataStruct.cpp">
+      <Filter>DataStruct</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -95,6 +98,12 @@
     <ClInclude Include="x86x64\x86x64.h">
       <Filter>x86x64</Filter>
     </ClInclude>
+    <ClInclude Include="DataStruct\DataStruct.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStruct\MyArray.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -117,6 +126,9 @@
     </Filter>
     <Filter Include="x86x64">
       <UniqueIdentifier>{de78119d-08f9-4309-94f6-a48d02582fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStruct">
+      <UniqueIdentifier>{a01adfed-3155-49a6-911d-36bb6e629f7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

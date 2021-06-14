@@ -10,6 +10,7 @@
 #include "C++14/C++14.h"
 #include "C++17/C++17.h"
 #include "x86x64/x86x64.h"
+#include "DataStruct/DataStruct.h"
 
 
 int main()
@@ -48,6 +49,10 @@ int main()
 
 	x86x64 cpp3264;
 	cpp3264.BeginTest();
+
+	DataStruct dataStruct;
+	dataStruct.BeginTest();
+
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;
 	int i;

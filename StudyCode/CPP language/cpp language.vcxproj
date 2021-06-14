@@ -31,6 +31,7 @@
     <ClCompile Include="C++17\C++17.cpp" />
     <ClCompile Include="CodeSafe.cpp" />
     <ClCompile Include="CPP98.cpp" />
+    <ClCompile Include="DataStruct\DataStruct.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestCLib.cpp" />
     <ClCompile Include="TestSTL.cpp" />
@@ -49,6 +50,8 @@
     <ClInclude Include="C++17\C++17.h" />
     <ClInclude Include="CodeSafe.h" />
     <ClInclude Include="CPP98.h" />
+    <ClInclude Include="DataStruct\DataStruct.h" />
+    <ClInclude Include="DataStruct\MyArray.h" />
     <ClInclude Include="TestCLib.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />
