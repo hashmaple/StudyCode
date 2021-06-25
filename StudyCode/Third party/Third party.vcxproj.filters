@@ -239,6 +239,9 @@
     <Filter Include="脚本">
       <UniqueIdentifier>{7ef40b01-2bce-4554-8613-f09a5e392f7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{811c39d8-ff7d-4d77-a288-37141957a1de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="lua\Makefile">

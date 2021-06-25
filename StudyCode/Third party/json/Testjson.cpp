@@ -81,7 +81,7 @@ void Testjson::BeginTest()
 			return;
 		}
 
-		// 二维查找值  需要判断isArray 负责会崩溃。
+		// 二维查找值  需要判断isArray 否则会崩溃。
 		if (root["name"].isArray() && !root["name"]["ABC"].isNull())
 		{
 			cout << root["name"]["ABC"].asString() << endl;
