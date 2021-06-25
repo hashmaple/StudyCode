@@ -19,3 +19,5 @@ public:
 bool TestCLib();
 
 void TestMyStaticLib();
+
+void TestMyDLL();

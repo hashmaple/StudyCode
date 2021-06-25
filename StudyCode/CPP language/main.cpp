@@ -23,6 +23,8 @@ int main()
 
 	TestMyStaticLib();
 
+	TestMyDLL();
+
 	// 调用会导致 MyLibClass使用本工程代码定义 非LIB库定义
 	//MyLibClass myclass;
 	//cout << "call MyStaticLib.lib MyStaticLibClass GetNumber() = "

@@ -270,3 +270,26 @@ void TestMyStaticLib()
 		// myclass.GetNumber2();
 	}
 }
+
+// 包含动态库中的函数声明和类声明
+#include "..\MyDLL\MyDLL\IMyDLL.h"
+using namespace MyDLL_SPACE;
+
+// 测试DLL
+void TestMyDLL()
+{
+	cout << __FILE__ << "  " << __FUNCTION__ << endl;
+
+	if (1)
+	{
+		auto pMyDLL = GetInterface();
+		cout << "call MyDLL GetInterface = " << pMyDLL << endl;
+
+		auto num = GetNum();
+		cout << "call MyDLL GetNum = " << num << endl;
+
+		// 获取宽字符 并输出
+		auto text = pMyDLL->OutputText();
+		wcout << L"call MyDLL pMyDLL->OutputText = " << text << endl;
+	}
+}
