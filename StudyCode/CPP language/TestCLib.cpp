@@ -17,6 +17,8 @@
 #include <time.h>   // 时间库
 #include <stdlib.h> // 标准工具库
 
+#include <windows.h>
+
 #pragma warning(disable:4996)
 
 #include <string>
@@ -275,13 +277,20 @@ void TestMyStaticLib()
 #include "..\MyDLL\MyDLL\IMyDLL.h"
 using namespace MyDLL_SPACE;
 
+
+typedef MyDLL_SPACE::IMyDLL* (*GetInterfaceFunc)();
+
+typedef int (*GetNumFunc)();
+
 // 测试DLL
 void TestMyDLL()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
-	if (1)
+	// debug 通过附加lib+h文件来使用
+	if (0)
 	{
+#ifdef DEBUG
 		auto pMyDLL = GetInterface();
 		cout << "call MyDLL GetInterface = " << pMyDLL << endl;
 
@@ -291,5 +300,42 @@ void TestMyDLL()
 		// 获取宽字符 并输出
 		auto text = pMyDLL->OutputText();
 		wcout << L"call MyDLL pMyDLL->OutputText = " << text << endl;
+#endif
+	}
+
+	// release 通过动态加载
+	if (0)
+	{
+		// 加载DLL
+		auto hModule = LoadLibrary(L"MyDLL.dll");
+		if (hModule == NULL)
+		{
+			cout << "LoadLibrary MyDLL.dll GetLastError = " << GetLastError() << endl;
+			return;
+		}
+
+		// 获取DLL中全局函数
+		auto pNumFunc = (GetNumFunc)GetProcAddress(hModule, "GetNum");
+		if (pNumFunc)
+		{
+			auto num = pNumFunc();
+			cout << "call MyDLL pMyDLL->GetNum = " << num << endl;
+		}
+
+		// 通过GetInterface获取DLL中类指针
+		auto func = (GetInterfaceFunc)GetProcAddress(hModule, "GetInterface");
+		if (func)
+		{
+			cout << "call GetProcAddress GetInterface = " << func << endl;
+
+			// 获取类指针
+			auto pMyDLL = func();
+			if (pMyDLL)
+			{
+				// 调用函数
+				auto text = pMyDLL->OutputText();
+				wcout << L"call MyDLL pMyDLL->OutputText = " << text << endl;
+			}
+		}
 	}
 }

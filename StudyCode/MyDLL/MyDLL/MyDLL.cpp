@@ -13,8 +13,8 @@ namespace MyDLL_SPACE
 		static MyDLL_SPACE::MyDLL mydll;
 		return &mydll;
 	}
-
 }
+
 int GetNum()
 {
 	return 110;

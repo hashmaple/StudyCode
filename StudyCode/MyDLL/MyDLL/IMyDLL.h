@@ -27,5 +27,7 @@ namespace MyDLL_SPACE
 	};
 
 	extern "C" MYDLL_API IMyDLL * GetInterface();
+
+
 }
 #endif //_INTERFACE_MYDLL_H
