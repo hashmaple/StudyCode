@@ -8,6 +8,7 @@
 #include "TestLua.h"
 #include "TestPython.h"
 #include "TestLibcurl.h"
+#include "TestXML.h"
 
 using namespace std;
 
@@ -32,6 +33,9 @@ int main()
 
 	TestLibcurl test_libcurl;
 	test_libcurl.BeginTest();
+
+	TestXML test_xml;
+	test_xml.BeginTest();
 
 	int i;
 	std::cin >> i;

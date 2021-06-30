@@ -40,7 +40,7 @@ void TestLibcurl::BeginTest()
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
 	// 测试 获取打开的网页信息
-	if (1)
+	if (0)
 	{
 		cout << "==TestLibcurl::BeginTest===" << endl;
 
