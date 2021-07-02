@@ -2,13 +2,7 @@
 #include <iostream>
 
 //#include "MyBoost.h"
-#include "Testthread.h"
-#include "json/Testjson.h"
-#include "TestVMP.h"
-#include "TestLua.h"
-#include "TestPython.h"
-#include "TestLibcurl.h"
-#include "TestXML.h"
+#include "TestHeader.h"
 
 using namespace std;
 

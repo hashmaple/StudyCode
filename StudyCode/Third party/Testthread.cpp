@@ -7,7 +7,7 @@
 // 创建人:		Maple(周树青)
 // 版权所有:	苏州蜗牛数字科技股份有限公司
 //--------------------------------------------------------------------
-#include "Testthread.h"
+#include "TestHeader.h"
 
 #include <stdio.h>  
 #include <iostream>
@@ -23,7 +23,6 @@ using namespace std;
 #pragma comment(lib, "pthreadVC2.lib")
 
 // 3 将dll文件拷贝到生成的.exe所在的文件夹中
-
 
 void* Function_t(void* Param)
 {
@@ -51,16 +50,6 @@ void * childFun(void *args)
 	cout << "after num = " << *num << endl;
 
 	return NULL;
-}
-
-Testthread::Testthread()
-{
-
-}
-
-Testthread::~Testthread()
-{
-
 }
 
 // 对外接口

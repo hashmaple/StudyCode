@@ -6,7 +6,7 @@
 // 整理日期:	2021年6月30日
 // 创建人:		Maple(周树青)
 //--------------------------------------------------------------------
-#include "TestXML.h"
+#include "TestHeader.h"
 
 #include <stdio.h>  
 #include <iostream>
@@ -25,7 +25,7 @@ void TestXML::BeginTest()
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
 	// rapidxml写文件
-	if (1)
+	if (0)
 	{
 		xml_document<> doc;
 
@@ -34,7 +34,7 @@ void TestXML::BeginTest()
 		doc.append_node(rot);
 
 		// 新节点1级  doc.append_node
-		xml_node<>* config_node = doc.allocate_node(node_element, "config", "information");
+		xml_node<>* config_node = doc.allocate_node(node_element, "config", "1");
 		doc.append_node(config_node);
 
 		// 新节点 子节点   config_node.append_node
@@ -69,9 +69,8 @@ void TestXML::BeginTest()
 		out.close();
 	}
 
-
 	// rapidxml读文件
-	if (1)
+	if (0)
 	{
 		// 读取文件
 		file<> fdoc("config.xml");
@@ -122,4 +121,9 @@ void TestXML::BeginTest()
 		out << doc;
 		out.close();
 	}
+
+	// tinyxml2 写文件
+
+	// tinyxml2 读文件
+
 }

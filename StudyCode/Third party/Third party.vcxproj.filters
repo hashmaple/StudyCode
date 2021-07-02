@@ -110,19 +110,20 @@
       <Filter>MD5</Filter>
     </ClCompile>
     <ClCompile Include="TestLibcurl.cpp" />
-    <ClCompile Include="json\Testjson.cpp" />
     <ClCompile Include="TestXML.cpp" />
+    <ClCompile Include="tinyxml2\tinyxml2.cpp">
+      <Filter>tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="Testjson.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
-    <ClInclude Include="Testthread.h" />
     <ClInclude Include="json\json.h">
       <Filter>Json</Filter>
     </ClInclude>
     <ClInclude Include="json\json-forwards.h">
       <Filter>Json</Filter>
     </ClInclude>
-    <ClInclude Include="TestVMP.h" />
     <ClInclude Include="VMProtect\VMProtectSDK.h">
       <Filter>VMProtectSDK</Filter>
     </ClInclude>
@@ -210,16 +211,12 @@
     <ClInclude Include="lua\lzio.h">
       <Filter>Lua</Filter>
     </ClInclude>
-    <ClInclude Include="TestLua.h" />
-    <ClInclude Include="TestPython.h" />
     <ClInclude Include="python38\include\Python.h">
       <Filter>Python</Filter>
     </ClInclude>
     <ClInclude Include="MD5\md5.h">
       <Filter>MD5</Filter>
     </ClInclude>
-    <ClInclude Include="TestLibcurl.h" />
-    <ClInclude Include="json\Testjson.h" />
     <ClInclude Include="rapidxml-1.13.0\rapidxml.hpp">
       <Filter>rapidxml-1.13.0</Filter>
     </ClInclude>
@@ -232,7 +229,10 @@
     <ClInclude Include="rapidxml-1.13.0\rapidxml_utils.hpp">
       <Filter>rapidxml-1.13.0</Filter>
     </ClInclude>
-    <ClInclude Include="TestXML.h" />
+    <ClInclude Include="tinyxml2\tinyxml2.h">
+      <Filter>tinyxml2</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHeader.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Json">
@@ -255,6 +255,9 @@
     </Filter>
     <Filter Include="rapidxml-1.13.0">
       <UniqueIdentifier>{811c39d8-ff7d-4d77-a288-37141957a1de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyxml2">
+      <UniqueIdentifier>{e328ae39-3614-448d-baef-350cc9bba442}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

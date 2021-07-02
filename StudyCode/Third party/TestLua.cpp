@@ -6,7 +6,10 @@
 // 整理日期:	2020年9月14日
 // 创建人:		Maple(周树青)
 //--------------------------------------------------------------------
-#include "TestLua.h"
+// Lua教程（一）：在C++中嵌入Lua脚本
+// 参考地址：https://www.jb51.net/article/55471.htm
+
+#include "TestHeader.h"
 
 #include <stdio.h>  
 #include <iostream>
@@ -27,9 +30,8 @@ int se_get_version(lua_State* L)
 	return 1;
 }
 
-int luaAdd(lua_State *lua_state, int x, int y)
+long long luaAdd(lua_State *lua_state, int x, int y)
 {
-	int sum;
 	//获取lua里面的add函数并把它放到lua的栈顶
 	lua_getglobal(lua_state, "LuaAdd");
 
@@ -41,7 +43,7 @@ int luaAdd(lua_State *lua_state, int x, int y)
 	lua_call(lua_state, 2, 1);
 
 	// 从栈顶读取返回值,注意这里的参数是-1
-	sum = lua_tointeger(lua_state, -1);
+	auto sum = lua_tointeger(lua_state, -1);
 
 	// 返回值从栈顶拿掉
 	lua_pop(lua_state, 1);
@@ -54,8 +56,8 @@ void readLuaArray(lua_State *L)
 {
 	lua_getglobal(L, "LuaArray");
 
-	int n = luaL_len(L, -1);
-	for (int i = 1; i <= n; ++i) 
+	auto n = luaL_len(L, -1);
+	for (auto i = 1; i <= n; ++i)
 	{
 		lua_rawgeti(L, 1, i);
 		cout << "read LuaArray: " << lua_tostring(L, -1) << endl;
@@ -72,8 +74,8 @@ int writeLuaArray(lua_State *L)
 	//确保table
 	luaL_checktype(L, 1, LUA_TTABLE);
 
-	int n = luaL_len(L, 1);
-	for (int i = 1; i <= n; ++i) 
+	auto n = luaL_len(L, 1);
+	for (auto i = 1; i <= n; ++i) 
 	{
 		lua_pushnumber(L, i);
 
@@ -85,14 +87,6 @@ int writeLuaArray(lua_State *L)
 	}
 
 	return 0;
-}
-
-TestLua::TestLua()
-{
-}
-
-TestLua::~TestLua()
-{
 }
 
 // 对外接口

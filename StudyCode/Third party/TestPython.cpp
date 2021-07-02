@@ -6,7 +6,7 @@
 // 整理日期:	2020年9月16日
 // 创建人:		Maple(周树青)
 //--------------------------------------------------------------------
-#include "TestPython.h"
+#include "TestHeader.h"
 
 #include <stdio.h>  
 #include <iostream>
@@ -24,14 +24,6 @@ char* UnicodeToUtf8(const wchar_t* unicode)
 	memset(szUtf8, 0, len + 1);
 	WideCharToMultiByte(CP_UTF8, 0, unicode, -1, szUtf8, len, NULL, NULL);
 	return szUtf8;
-}
-
-TestPython::TestPython()
-{
-}
-
-TestPython::~TestPython()
-{
 }
 
 // 对外接口

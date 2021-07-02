@@ -5,9 +5,9 @@
 // 创建日期:	2017年5月8日
 // 整理日期:	2020年4月11日
 // 创建人:		Maple(周树青)
-// 版权所有:	苏州蜗牛数字科技股份有限公司
+// 版权所有:	
 //--------------------------------------------------------------------
-#include "TestVMP.h"
+#include "TestHeader.h"
 
 #include <stdio.h>  
 #include <iostream>
@@ -41,16 +41,6 @@ char * VMProtectDecryptStringA(const char *value);
 wchar_t * VMProtectDecryptStringW(const wchar_t *value);
 */
 using namespace std;
-
-TestVMP::TestVMP()
-{
-
-}
-
-TestVMP::~TestVMP()
-{
-
-}
 
 // 对外接口
 void TestVMP::BeginTest()

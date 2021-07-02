@@ -161,7 +161,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="json\jsoncpp.cpp" />
-    <ClCompile Include="json\Testjson.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -195,6 +194,7 @@
     <ClCompile Include="lua\lvm.c" />
     <ClCompile Include="lua\lzio.c" />
     <ClCompile Include="MD5\md5.cpp" />
+    <ClCompile Include="Testjson.cpp" />
     <ClCompile Include="TestLibcurl.cpp" />
     <ClCompile Include="TestLua.cpp" />
     <ClCompile Include="TestPython.cpp" />
@@ -203,11 +203,11 @@
     <ClCompile Include="thirdparty.cpp" />
     <ClCompile Include="MyBoost.cpp" />
     <ClCompile Include="Testthread.cpp" />
+    <ClCompile Include="tinyxml2\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json\json-forwards.h" />
     <ClInclude Include="json\json.h" />
-    <ClInclude Include="json\Testjson.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
     <ClInclude Include="lua\lcode.h" />
@@ -243,12 +243,8 @@
     <ClInclude Include="rapidxml-1.13.0\rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml-1.13.0\rapidxml_print.hpp" />
     <ClInclude Include="rapidxml-1.13.0\rapidxml_utils.hpp" />
-    <ClInclude Include="TestLibcurl.h" />
-    <ClInclude Include="TestLua.h" />
-    <ClInclude Include="TestPython.h" />
-    <ClInclude Include="Testthread.h" />
-    <ClInclude Include="TestVMP.h" />
-    <ClInclude Include="TestXML.h" />
+    <ClInclude Include="TestHeader.h" />
+    <ClInclude Include="tinyxml2\tinyxml2.h" />
     <ClInclude Include="VMProtect\VMProtectSDK.h" />
   </ItemGroup>
   <ItemGroup>
