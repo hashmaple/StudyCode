@@ -81,7 +81,7 @@ void NewString::BeginTest()
 	// 正则表达式 参考 ECMA脚本文法
 	if (0)
 	{
-		// 正则表达式查找
+		// 正则表达式查找 
 		string numstr = " 1234";
 		regex reg1("..23.");
 		regex reg2(".*23.*");
@@ -97,6 +97,5 @@ void NewString::BeginTest()
 			// *匹配前面的表达式0~N次
 			cout << "regex_match  (.*23.*)find " << endl;
 		}
-
 	}
 }

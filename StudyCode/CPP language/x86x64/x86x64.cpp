@@ -58,6 +58,7 @@ void x86x64::BeginTest()
 		cout << "分析数据类型都无变化,主要是指针64位上为8" << endl;
 
 		cout << "sizeof(char):" << sizeof(char) << endl;		// 1
+		cout << "sizeof(wchar_t):" << sizeof(wchar_t) << endl;	// 1
 		cout << "sizeof(short):" << sizeof(short) << endl;		// 2
 		cout << "sizeof(int):" << sizeof(int) << endl;			// 4
 		cout << "sizeof(long):" << sizeof(long) << endl;		// 4
