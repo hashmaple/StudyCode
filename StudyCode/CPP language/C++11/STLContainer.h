@@ -12,6 +12,23 @@
  * \note
 */
 #pragma once
+#include <iostream>
+#include <unordered_map>
+#include <string>
+#include <functional>
+
+namespace std
+{
+	template<> class hash<std::pair<int, int>>
+	{
+	public:
+		size_t operator()(const pair<int, int>& pair_id) const
+		{
+			return hash<int>()(pair_id.first) ^ hash<int>()(pair_id.second);
+		}
+	};
+}
+
 
 class STLContainer
 {
@@ -22,3 +39,4 @@ public:
 	// 对外接口
 	void BeginTest();
 };
+
