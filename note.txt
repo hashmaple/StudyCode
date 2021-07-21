@@ -2,3 +2,16 @@
 https://blog.csdn.net/nma_123456/article/details/45077345
 
 https://blog.csdn.net/Crystal_lpx/article/details/71600721
+
+WIN32 LINUX平台下:
+SOCKETwebsocket协议 tcp自定义协议，tcp分包与粘包，明文传输
+
+基于TCP(面向连接)的socket编程：
+
+Sever服务器端程序： 
+1、创建套接字（socket）。 
+2、将套接字绑定到一个本地地址和端口上（bind）。 
+3、将套接字设为监听模式，准备接收客户请求（listen）。 
+4、等待客户请求到来；当请求到来后，接受连接请求，返回一个新的对应于此次连接的套接字（accept）。 
+5、用返回的套接字和客户端进行通信（send/recv）。 
+6、返回，等待另一客户请求。 7、关闭套接字。

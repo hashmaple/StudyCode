@@ -50,3 +50,15 @@ class TestXML
 public:
 	void BeginTest();
 };
+
+class WinSocketServer
+{
+public:
+	void BeginTest();
+};
+
+class WinSocketClient
+{
+public:
+	void BeginTest();
+};

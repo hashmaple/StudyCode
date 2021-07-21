@@ -31,6 +31,12 @@ int main()
 	TestXML test_xml;
 	test_xml.BeginTest();
 
+	WinSocketServer socketServer;
+	socketServer.BeginTest();
+
+	WinSocketClient socketClient;
+	socketClient.BeginTest();
+
 	int i;
 	std::cin >> i;
 	return 0;

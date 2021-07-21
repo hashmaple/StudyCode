@@ -115,6 +115,12 @@
       <Filter>tinyxml2</Filter>
     </ClCompile>
     <ClCompile Include="Testjson.cpp" />
+    <ClCompile Include="Socket\WinSocketServer.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\WinSocketClient.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
@@ -258,6 +264,9 @@
     </Filter>
     <Filter Include="tinyxml2">
       <UniqueIdentifier>{e328ae39-3614-448d-baef-350cc9bba442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{4bfc6c7e-9e29-4574-a07f-b0280ee6d9be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
