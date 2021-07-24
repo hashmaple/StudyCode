@@ -194,6 +194,8 @@
     <ClCompile Include="lua\lvm.c" />
     <ClCompile Include="lua\lzio.c" />
     <ClCompile Include="MD5\md5.cpp" />
+    <ClCompile Include="Socket\WinSocketClient.cpp" />
+    <ClCompile Include="Socket\WinSocketServer.cpp" />
     <ClCompile Include="Testjson.cpp" />
     <ClCompile Include="TestLibcurl.cpp" />
     <ClCompile Include="TestLua.cpp" />

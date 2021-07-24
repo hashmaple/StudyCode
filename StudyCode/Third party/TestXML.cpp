@@ -19,8 +19,9 @@ using namespace std;
 #include "rapidxml-1.13.0\rapidxml_print.hpp"
 using namespace rapidxml;
 
-#include "tinyxml2/tinyxml2.h"
+#include "tinyxml2\tinyxml2.h"
 using namespace tinyxml2;
+
 
 // 对外接口
 void TestXML::BeginTest()
@@ -28,7 +29,7 @@ void TestXML::BeginTest()
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
 	// rapidxml写文件
-	if (1)
+	if (0)
 	{
 		xml_document<> doc;
 
@@ -126,7 +127,7 @@ void TestXML::BeginTest()
 	}
 
 	// tinyxml2 写文件
-	if (1)
+	if (0)
 	{
 		const char* declaration = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 
@@ -192,18 +193,60 @@ void TestXML::BeginTest()
 	}
 
 	// tinyxml2 读文件
-	if (1)
+	if (0)
 	{
 		XMLDocument doc;
-		auto ret = doc.LoadFile("tinyTest.xml");
-		if (ret != XML_SUCCESS)
+		doc.LoadFile("config.xml");
+
+		// 解析格式:
+		// node:Value() mode
+		// element-attr:Value() false
+		// element-GetText() screen
+		// <mode fullscreen = "false">screen< / mode>
+
+		// 第一行注释
+		auto root = doc.FirstChild();
+		if (root)
 		{
-			cout << "LoadFile error = " << ret << endl;
+			cout << "FirstChild value = " << root->Value() << endl;
+
+			// 此为根节点
+			auto node = root->NextSibling();
+
+			// 再换到根节点下第一个子节点
+			node = node->FirstChild();
+
+			// 遍历邻节点
+			while (node)
+			{
+				cout << "node->Value() = " << node->Value() << endl;
+
+				// 输出属性
+				if (node->ToElement() && node->ToElement()->FirstAttribute())
+				{
+					cout << "node Attribute = " << node->ToElement()->FirstAttribute()->Value() << endl;
+				}
+				
+				// 输出一层子节点
+				auto child = node->FirstChild();
+				while (child)
+				{
+					cout << "Child value = " << child->Value() << endl;
+
+					// 输出内容
+					auto element = child->ToElement();
+					if (element)
+					{
+						cout << "Child ToElement text = " << element->GetText() << endl;
+					}
+
+					child = child->NextSibling();
+				}
+
+				cout << "============ " << endl;
+
+				node = node->NextSibling();
+			}
 		}
-
-		auto element = doc.FirstChildElement();
-
-		doc.Clear();
 	}
-
 }

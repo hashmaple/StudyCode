@@ -260,7 +260,22 @@ void STLContainer::BeginTest()
 		cout << "UnorderedMap.at(a) = " << UnorderedMap.at("a") << endl;
 		cout << "UnorderedMap.bucket_count = " << UnorderedMap.bucket_count() << endl;
 		cout << "UnorderedMap.max_bucket_count = " << UnorderedMap.max_bucket_count() << endl;
+
+		// 自定义KEY类型 需提供hash函数
+		unordered_map<pair<int, int>, int> UnordMapPairs;
+		UnordMapPairs[pair<int, int>(1, 1)] = 2;
+		UnordMapPairs[pair<int, int>(2, 2)] = 4;
+
+		for (auto& it : UnordMapPairs)
+		{
+			cout << "UnordMapPairs it.first.first = " << it.first.first << endl;
+			cout << "UnordMapPairs it.first.second = " << it.first.second << endl;
+			cout << "UnordMapPairs it.first.second = " << it.second << endl;
+		}
 	}
+
+
+
 
 	// stack LIFO容器 后进先出 理解为垃圾桶 默认内部为deque.
 	if (0)
