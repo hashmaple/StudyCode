@@ -27,20 +27,17 @@ void StartClient()
 
 	WSADATA wsaData;
 
-	// 初始化
-	if (WSAStartup(MAKEWORD(1, 1), &wsaData) != 0)
+	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
 		return;
 	}
 
-	// 版本校验
-	if (LOBYTE(wsaData.wVersion) != 1 || HIBYTE(wsaData.wVersion) != 1)
+	if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
 	{
 		WSACleanup();
 		return;
 	}
 
-	//建立套接字
 	SOCKET sockClient = socket(AF_INET, SOCK_STREAM, 0);
 
 	SOCKADDR_IN addrSrv;
@@ -48,11 +45,7 @@ void StartClient()
 	addrSrv.sin_family = AF_INET;
 	addrSrv.sin_port = htons(6000);
 
-	//连接到目的主机
 	connect(sockClient, (SOCKADDR*)&addrSrv, sizeof(SOCKADDR));
-
-	cout << "Client connect：" << "127.0.0.1" << endl;
-
 
 	// 构造发送数据
 	auto threadID = GetCurrentThreadId();
@@ -62,7 +55,12 @@ void StartClient()
 
 	while (true)
 	{
-		recv(sockClient, recvBuf, 100, 0);
+		auto ret = recv(sockClient, recvBuf, 100, 0);
+		if (ret <= 0)
+		{
+			// 断开
+			break;
+		}
 
 		if (strlen(recvBuf) > 0)
 		{
@@ -71,12 +69,13 @@ void StartClient()
 
 		memset(recvBuf, 0, 100);
 
+
 		send(sockClient, sendBuf, strlen(sendBuf) + 1, 0);
+		cout << "Client send：" << sendBuf << endl;
 
 		Sleep(1000);
 	}
 
-	//关闭套接字
 	closesocket(sockClient);
 
 	WSACleanup();
@@ -91,4 +90,10 @@ void WinSocketClient::BeginTest()
 	thread t(StartClient);
 	//t.join();		// 等待线程完成函数，主线程需要等待子线程运行结束了才可以结束
 	t.detach();		// 分离线程函数，让线程在后台运行，即主线程不会等待子线程运行结束
+
+	thread t2(StartClient);
+	t2.detach();
+
+	thread t3(StartClient);
+	t3.detach();
 }

@@ -1,8 +1,10 @@
 ﻿//--------------------------------------------------------------------
 // 文件名:		WinSocketServer
 // 内  容:		WinSocketServer
-// 说  明:		socket:https://www.cnblogs.com/zCoderJoy/p/3889495.html
+// Winsocket:    https://www.cnblogs.com/zCoderJoy/p/3889495.html
 // 线程介绍:     https://www.cnblogs.com/alinh/p/9648084.html
+// TCP IP详解:   https://blog.csdn.net/qq_44714603/article/details/92694011
+// TCP/IP协议:   https://www.cnblogs.com/LIUYANZUO/p/7302572.html
 // 创建日期:	2021年7月20日
 // 整理日期:	2021年7月20日
 // 创建人:		Maple(周树青)
@@ -26,14 +28,14 @@ void StartServer()
 
 	// 第一步 通过WSAStartup函数完成对Winsock服务的初始化,调用socket必须初始化
 	WSADATA wsaData;
-	// Windows Sockets Asynchronous，Windows异步套接字 1.1版本
-	if (WSAStartup(MAKEWORD(1, 1), &wsaData) != 0)
+	// Windows Sockets Asynchronous，Windows异步套接字
+	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
 		return;
 	}
 
 	// 判断版本
-	if (LOBYTE(wsaData.wVersion) != 1 || HIBYTE(wsaData.wVersion) != 1)
+	if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
 	{
 		// 释放
 		WSACleanup();
