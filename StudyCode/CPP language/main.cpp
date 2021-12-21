@@ -11,6 +11,7 @@
 #include "C++17/C++17.h"
 #include "x86x64/x86x64.h"
 #include "DataStruct/DataStruct.h"
+#include "C++ Templates/C++ Templates.h"
 
 
 int main()
@@ -54,6 +55,9 @@ int main()
 
 	DataStruct dataStruct;
 	dataStruct.BeginTest();
+
+	TestTemplates Templates;
+	Templates.BeginTest();
 
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;

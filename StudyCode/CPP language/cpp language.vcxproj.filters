@@ -50,6 +50,9 @@
     <ClCompile Include="DataStruct\DataStruct.cpp">
       <Filter>DataStruct</Filter>
     </ClCompile>
+    <ClCompile Include="C++ Templates\C++ Templates.cpp">
+      <Filter>C++ Templates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -83,6 +86,9 @@
     <ClInclude Include="DataStruct\MyArray.h">
       <Filter>DataStruct</Filter>
     </ClInclude>
+    <ClInclude Include="C++ Templates\C++ Templates.h">
+      <Filter>C++ Templates</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -108,6 +114,9 @@
     </Filter>
     <Filter Include="DataStruct">
       <UniqueIdentifier>{a01adfed-3155-49a6-911d-36bb6e629f7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C++ Templates">
+      <UniqueIdentifier>{6238dba1-a5f7-4a0e-9706-6a29ea501c90}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
