@@ -6,7 +6,7 @@
 	updated:	2015/2/5
 	author:		maple(ึÜส๗วเ)	
 *********************************************************************/
-#include "NewCPP.h"
+#include "C++11.h"
 
 #include <algorithm>
 #include <functional>

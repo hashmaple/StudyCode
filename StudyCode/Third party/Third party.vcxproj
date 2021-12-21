@@ -247,7 +247,6 @@
     <ClInclude Include="rapidxml-1.13.0\rapidxml_utils.hpp" />
     <ClInclude Include="TestHeader.h" />
     <ClInclude Include="tinyxml2\tinyxml2.h" />
-    <ClInclude Include="VMProtect\VMProtectSDK.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\StudyCode\x64\Debug\httpserver.py" />

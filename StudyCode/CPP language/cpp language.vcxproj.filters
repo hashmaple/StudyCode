@@ -68,27 +68,6 @@
     <ClInclude Include="C++11\C++11.h">
       <Filter>C++11</Filter>
     </ClInclude>
-    <ClInclude Include="C++11\NewCpp.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\NewFeatures.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\GeneralUtilities.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\STLContainer.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\FunAndLambda.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\C++11String.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
-    <ClInclude Include="C++11\MultiThread.h">
-      <Filter>C++11</Filter>
-    </ClInclude>
     <ClInclude Include="C++14\C++14.h">
       <Filter>C++14</Filter>
     </ClInclude>

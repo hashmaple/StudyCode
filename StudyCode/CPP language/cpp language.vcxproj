@@ -38,14 +38,7 @@
     <ClCompile Include="x86x64\x86x64.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C++11\C++11String.h" />
-    <ClInclude Include="C++11\FunAndLambda.h" />
-    <ClInclude Include="C++11\MultiThread.h" />
-    <ClInclude Include="C++11\STLContainer.h" />
     <ClInclude Include="C++11\C++11.h" />
-    <ClInclude Include="C++11\GeneralUtilities.h" />
-    <ClInclude Include="C++11\NewCpp.h" />
-    <ClInclude Include="C++11\NewFeatures.h" />
     <ClInclude Include="C++14\C++14.h" />
     <ClInclude Include="C++17\C++17.h" />
     <ClInclude Include="CodeSafe.h" />

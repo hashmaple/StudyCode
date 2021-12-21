@@ -7,7 +7,6 @@
     <ClCompile Include="json\jsoncpp.cpp">
       <Filter>Json</Filter>
     </ClCompile>
-    <ClCompile Include="TestVMP.cpp" />
     <ClCompile Include="lua\lapi.c">
       <Filter>Lua</Filter>
     </ClCompile>
@@ -121,6 +120,7 @@
     <ClCompile Include="Socket\WinSocketClient.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
+    <ClCompile Include="TestVMP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />
@@ -129,9 +129,6 @@
     </ClInclude>
     <ClInclude Include="json\json-forwards.h">
       <Filter>Json</Filter>
-    </ClInclude>
-    <ClInclude Include="VMProtect\VMProtectSDK.h">
-      <Filter>VMProtectSDK</Filter>
     </ClInclude>
     <ClInclude Include="lua\lapi.h">
       <Filter>Lua</Filter>
@@ -252,9 +249,6 @@
     </Filter>
     <Filter Include="MD5">
       <UniqueIdentifier>{99e95157-2869-45a5-a319-12101ccb3504}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VMProtectSDK">
-      <UniqueIdentifier>{c850e619-7130-4041-bb31-19885e1d6955}</UniqueIdentifier>
     </Filter>
     <Filter Include="脚本">
       <UniqueIdentifier>{7ef40b01-2bce-4554-8613-f09a5e392f7c}</UniqueIdentifier>

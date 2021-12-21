@@ -13,23 +13,7 @@
 */
 #include "C++11.h"
 
-#include "NewFeatures.h"
-#include "GeneralUtilities.h"
-#include "STLContainer.h"
-#include "FunAndLambda.h"
-#include "C++11String.h"
-#include "MultiThread.h"
-
 using namespace std;
-
-CPP11::CPP11(void)
-{
-}
-
-CPP11::~CPP11(void)
-{
-}
-
 
 /////////////////////////////对外接口/////////////////////////////////////////////
 // CPP11

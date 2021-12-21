@@ -11,7 +11,7 @@
  *
  * \note
 */
-#include "C++11String.h"
+#include "C++11.h"
 
 #include <string>
 

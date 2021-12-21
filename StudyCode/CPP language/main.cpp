@@ -3,7 +3,7 @@
 
 #include "CodeSafe.h"
 #include "CPP98.h"
-#include "C++11/NewCpp.h"
+#include "C++11/C++11.h"
 #include "TestCLib.h"
 #include "TestSTL.h"
 #include "C++11/C++11.h"
