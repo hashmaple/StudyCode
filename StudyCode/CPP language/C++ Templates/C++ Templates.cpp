@@ -33,6 +33,13 @@ inline RT rt_max(T const& a, T const& b)
 	return a > b ? a : b;
 }
 
+// 全特化的函数
+template<>
+inline const char*  rt_max(int const& a, int const& b)
+{
+	return "nonsupport int vs int";
+}
+
 // 对外接口
 void TestTemplates::BeginTest()
 {
@@ -41,6 +48,8 @@ void TestTemplates::BeginTest()
 	// chapter 2 模板函数(参数,演绎和显式指定等) 
 	if (0)
 	{
+		cout << "chapter 2 模板函数(参数,演绎和显式指定等) " << endl;
+
 		// 明确使用::调用全局的max函数,不然会调用STL中的std::max()
 		cout << "::max(1,3) = " << ::max(1, 3) << endl;
 		cout << "::max(1.1, 3.3) = " << ::max(1.1, 3.3) << endl;
@@ -61,8 +70,14 @@ void TestTemplates::BeginTest()
 
 		// 显式指定返回类型
 		cout << "::rt_max<int>(1.1, 3.3) = " << ::rt_max<int>(1.1, 3.3) << endl;
+		cout << "::rt_max<int, int>(1.1, 3.3) = " << ::rt_max<int, int>(1.1, 3.3) << endl;
 		cout << "::rt_max<double, double>(1.1, 3.3) = " << ::rt_max<double, double>(1.1, 3.3) << endl;
 		cout << "::rt_max<double, int>(1.1, 3.3) = " << ::rt_max<double, int>(1.1, 3.3) << endl;
+
+		// 调用特化的模板函数
+		const char* restr = ::rt_max<const char*, int>(1.1, 3.3);
+		cout << "::rt_max<const char*, int>(1.1, 3.3) = " 
+			<< ::rt_max<const char*, int>(1.1, 3.3) << endl;
 
 		/* tips:
 		•模板函数为不同的模板实参定义了一个函数家族。
@@ -74,9 +89,12 @@ void TestTemplates::BeginTest()
 	}
 
 	// chapter 3 类模板
-	if (1)
+	if (0)
 	{
+		cout << "chapter 3 类模板 " << endl;
+
 		// 使用模板容器
+		cout << "模板容器 MyStack<int> stack" << endl;
 		MyStack<int> stack;
 		stack.push(1);
 		stack.push(2);
@@ -110,5 +128,80 @@ void TestTemplates::BeginTest()
 		{
 			cout << "std::exception: " << ex.what() << endl;
 		}
+
+		// 使用特化的容器
+		cout << "特化的容器 MyStack<string> strStack" << endl;
+		MyStack<string> strStack;
+		strStack.push("a");
+		strStack.push("b");
+		strStack.push("c");
+
+		// 遍历输出
+		while (!strStack.empty())
+		{
+			cout << "strStack.top() = " << strStack.top() << endl;
+			strStack.pop();
+		}
+
+		// 使用模板容器-给出容器
+		cout << "模板容器 MyStack<double, deque<double>> dequeStack" << endl;
+		MyStack<double, deque<double>> dequeStack;
+		dequeStack.push(1.1f);
+		dequeStack.push(2.1f);
+		dequeStack.push(3.1f);
+
+		// 遍历输出
+		while (!dequeStack.empty())
+		{
+			cout << "dequeStack.top() = " << dequeStack.top() << endl;
+			dequeStack.pop();
+		}
+
+		/*
+		•类模板:有一个或多个类型还没有被指定。
+		•编译器将会基于该类型来实例化类模板。
+		•只有那些被调用的成员函数才会被实例化。
+		•可以用某种特定类型特化类模板。
+		•可以用某种特定类型局部特化类模板。
+		•可以为类模板的参数定义缺省值，这些值还可以引用之前的模板参数。
+		*/
+	}
+
+	// chapter 4 非类型模板参数
+	if (0)
+	{
+		cout << "chapter 4 非类型模板参数 " << endl;
+		FixedStack<int, 20> intFStack;
+
+		try
+		{
+			// 填入和打印
+			for (int i = 0; i < 25; i++)
+			{
+				intFStack.push(i);
+				cout << "intFStack.top() = " << intFStack.top() << endl;
+			}
+		}
+		catch (std::exception const& ex)
+		{
+			cout << "std::exception: " << ex.what() << endl;
+		}
+
+		// 非类型的函数模板使用
+		int x = 100;
+		auto y = addValue<int, 10>(100);
+		cout << "addValue<int, 10>(100): " << y << endl;
+
+		/*
+		•模板可以具有值模板参数，而不仅仅是类型模板参数。 
+		•对于非类型模板参数，你不能使用浮点数、class 类型的对象和
+		内部链接对象（例如string）作为实参。*/
+	}
+
+	// chapter 5 基础性技巧
+	if (1)
+	{
+		cout << "chapter 4 非类型模板参数 " << endl;
+
 	}
 }
