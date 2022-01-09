@@ -157,6 +157,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>python38.lib;libcurl.lib;VMProtectSDK64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>pthread\lib\x64;python38\libs;libcurl\lib\release;VMProtect;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <StackReserveSize>
+      </StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -196,6 +198,7 @@
     <ClCompile Include="MD5\md5.cpp" />
     <ClCompile Include="Socket\WinSocketClient.cpp" />
     <ClCompile Include="Socket\WinSocketServer.cpp" />
+    <ClCompile Include="FileCleanUp.cpp" />
     <ClCompile Include="Testjson.cpp" />
     <ClCompile Include="TestLibcurl.cpp" />
     <ClCompile Include="TestLua.cpp" />

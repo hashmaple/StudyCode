@@ -113,7 +113,11 @@ void WinSocketServer::BeginTest()
 	*/
 
 	// 使用线程函数 避免卡死
-	thread t(StartServer);
-	//t.join();		// 等待线程完成函数，主线程需要等待子线程运行结束了才可以结束
-	t.detach();		// 分离线程函数，让线程在后台运行，即主线程不会等待子线程运行结束
+	if (0)
+	{
+		thread t(StartServer);
+		//t.join();		// 等待线程完成函数，主线程需要等待子线程运行结束了才可以结束
+		t.detach();		// 分离线程函数，让线程在后台运行，即主线程不会等待子线程运行结束
+	}
+
 }
