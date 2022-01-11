@@ -121,6 +121,7 @@
       <Filter>Socket</Filter>
     </ClCompile>
     <ClCompile Include="TestVMP.cpp" />
+    <ClCompile Include="FileCleanUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBoost.h" />

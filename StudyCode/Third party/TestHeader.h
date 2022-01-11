@@ -62,3 +62,9 @@ class WinSocketClient
 public:
 	void BeginTest();
 };
+
+class FileCleanUp
+{
+public:
+	void BeginTest();
+};

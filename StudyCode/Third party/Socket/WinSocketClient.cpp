@@ -86,14 +86,17 @@ void WinSocketClient::BeginTest()
 {
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
-	// 使用线程函数 避免卡死
-	thread t(StartClient);
-	//t.join();		// 等待线程完成函数，主线程需要等待子线程运行结束了才可以结束
-	t.detach();		// 分离线程函数，让线程在后台运行，即主线程不会等待子线程运行结束
+	if (0)
+	{
+		// 使用线程函数 避免卡死
+		thread t(StartClient);
+		//t.join();		// 等待线程完成函数，主线程需要等待子线程运行结束了才可以结束
+		t.detach();		// 分离线程函数，让线程在后台运行，即主线程不会等待子线程运行结束
 
-	thread t2(StartClient);
-	t2.detach();
+		thread t2(StartClient);
+		t2.detach();
 
-	thread t3(StartClient);
-	t3.detach();
+		thread t3(StartClient);
+		t3.detach();
+	}
 }

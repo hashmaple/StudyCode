@@ -37,6 +37,9 @@ int main()
 	WinSocketClient socketClient;
 	socketClient.BeginTest();
 
+	FileCleanUp file_cleanup;
+	file_cleanup.BeginTest();
+
 	int i;
 	std::cin >> i;
 	return 0;
