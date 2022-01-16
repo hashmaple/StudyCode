@@ -152,7 +152,72 @@ public:
 template<typename T, int ADDVAL>
 T addValue(T const& x)
 {
-	return x + ADDVAL;
+	// 初始化
+	T emptyT = T();
+
+	return x + ADDVAL + emptyT;
+}
+
+// 打印STL容器的元素 类型说明
+template<typename T>
+void PrintSTLContainer(T const& container)
+{
+	cout << "PrintSTLContainer begin" << endl;
+
+	// typename 说明:模板内部的类型,而非静态成员
+	typename T::const_iterator it = container.begin();
+
+	// auto 可以直接使用,YYOY.
+	//auto it = container.begin();
+
+	for (; it != container.end(); ++it)
+	{
+		cout << *it << endl;
+	}
+
+	cout << "PrintSTLContainer end" << endl;
+}
+
+// 模板基类
+template<typename T>
+class Base
+{
+private:
+	T m_value;
+public:
+	void exit(){cout << "Base:base_call  " << endl;}
+};
+
+// 模板子类
+template<typename T>
+class Derived:Base<T>
+{
+private:
+	T m_value;
+public:
+	void sub_call()
+	{ 
+		exit(); // 易混淆
+		this->exit(); // 清晰
+		Base<T>::exit(); // 清晰
+		cout << "Derived:sub_call  " << endl; 
+	}
+};
+
+// decay 退化
+template <typename T>
+void ref(T const& x) 
+{ 
+	std::cout << "x in ref(T const&): " << typeid(x).name() << '\n';
+} 
+
+/*对于非引用类型的参数，在实参演绎的过程中，
+会出现数组到指针（array-to-pointer）的类型转换
+（这种转型通常也被称为decay）。*/
+template <typename T> 
+void nonref(T x) 
+{ 
+	std::cout << "x in nonref(T): " << typeid(x).name() << '\n'; 
 }
 
 class MyInt 
