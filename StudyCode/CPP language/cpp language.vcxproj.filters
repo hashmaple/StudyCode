@@ -53,6 +53,9 @@
     <ClCompile Include="C++ Templates\C++ Templates.cpp">
       <Filter>Templates</Filter>
     </ClCompile>
+    <ClCompile Include="OOP\OOPClass.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -89,6 +92,9 @@
     <ClInclude Include="C++ Templates\C++ Templates.h">
       <Filter>Templates</Filter>
     </ClInclude>
+    <ClInclude Include="OOP\OOPClass.h">
+      <Filter>OOP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -117,6 +123,9 @@
     </Filter>
     <Filter Include="Templates">
       <UniqueIdentifier>{6238dba1-a5f7-4a0e-9706-6a29ea501c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OOP">
+      <UniqueIdentifier>{c9e52ff4-5c20-4ada-8dc6-eb24613a2676}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

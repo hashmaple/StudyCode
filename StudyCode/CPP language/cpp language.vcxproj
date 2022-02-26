@@ -34,6 +34,7 @@
     <ClCompile Include="CPP98.cpp" />
     <ClCompile Include="DataStruct\DataStruct.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OOP\OOPClass.cpp" />
     <ClCompile Include="TestCLib.cpp" />
     <ClCompile Include="TestSTL.cpp" />
     <ClCompile Include="x86x64\x86x64.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="CPP98.h" />
     <ClInclude Include="DataStruct\DataStruct.h" />
     <ClInclude Include="DataStruct\MyArray.h" />
+    <ClInclude Include="OOP\OOPClass.h" />
     <ClInclude Include="TestCLib.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />

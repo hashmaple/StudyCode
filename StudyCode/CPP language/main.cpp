@@ -12,7 +12,7 @@
 #include "x86x64/x86x64.h"
 #include "DataStruct/DataStruct.h"
 #include "C++ Templates/C++ Templates.h"
-
+#include "OOP/OOPClass.h"
 
 int main()
 {
@@ -59,6 +59,8 @@ int main()
 	TestTemplates Templates;
 	Templates.BeginTest();
 
+	OOPClass oopclass;
+	oopclass.BeginTest();
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;
 	int i;
