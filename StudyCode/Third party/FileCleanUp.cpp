@@ -72,7 +72,6 @@ void FileCleanUp::BeginTest()
 		*/
 	}
 
-	// 文件解析JSON
 	if (0)
 	{
 		// 遍历文件夹

@@ -219,28 +219,3 @@ void nonref(T x)
 { 
 	std::cout << "x in nonref(T): " << typeid(x).name() << '\n'; 
 }
-
-class MyInt 
-{ 
-public: 
-	MyInt(int i); 
-}; 
-
-MyInt operator¨C (MyInt const&); 
-bool operator> (MyInt const&, MyInt const&); 
-
-typedef MyInt Int; 
-
-template <typename T> 
-void f(T i)
-{
-	if (i > 0)
-	{
-		g(-i);
-	}
-}
-
-void g(Int) 
-{ 
-	f<Int>(42);
-} 
