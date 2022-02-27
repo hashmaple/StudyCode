@@ -24,6 +24,20 @@ public:
 	void BeginTest();
 };
 
+// class template
+template<typename T>
+class TComplex
+{
+public:
+	// 构造函数 + 初值列,初始列(区别于赋值)
+	TComplex(T r = 0, T i = 0) : re(r), im(i) {}
+
+	T real() const { return im; }
+	T imag() const { return im; }
+private:
+	T re, im;
+};
+
 // 前向声明
 class complex;
 complex& __doapl(complex* ths, const complex& r);
@@ -44,7 +58,12 @@ public:
 	complex& operator -= (const complex&);
 
 	// const常量成员函数 此方法不会修改内部数据 const对象也可以调用
-	double real() const { return re; }
+	double real() const 
+	{ 
+		// this->re 等价于 re
+		return this->re; 
+	}
+
 	// 在class body内直接定义,自动成为inline的候选人
 	double imag() const { return im; }
 
@@ -104,7 +123,6 @@ inline bool operator == (const complex& x, const complex& y)
 {
 	return real(x) == real(y) && imag(x) == imag(y);
 }
-
 
 // 类声明 with pionter class
 class String
@@ -175,5 +193,50 @@ inline String::~String()
 
 	std::cout << "~String" << std::endl;
 }
+
+// 类的大小
+class EmptyClass
+{};
+
+// 一般类
+class ClassWithoutVFP1
+{
+	int m_i;
+};
+
+class ClassWithoutVFP2
+{
+	char* p;
+};
+
+class ClassWithoutVFP3
+{
+	int m_i;
+	char* p;
+};
+
+// 类带虚函数
+class ClassWithVFP1
+{
+	int m_i;
+	// 因为有虚函数, 产出虚函数表的指针占8位
+	virtual void fun() {}
+};
+
+// 继承默认就有虚函数
+class ClassWithVFP2 : ClassWithVFP1
+{
+	char* p;
+
+	// 普通函数不占类的内存大小
+	void fun1() {}
+	void fun2() {}
+};
+
+// 继承默认就有虚函数
+class ClassWithVFP3 : ClassWithVFP2
+{
+	int m_i;	// 子类定义,父类仍然占内存
+};
 
 #endif // OOPClass_h__

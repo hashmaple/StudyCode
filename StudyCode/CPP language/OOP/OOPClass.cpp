@@ -37,8 +37,6 @@ void OOPClass::BeginTest()
 		complex c1(2, 1);
 		complex c2(4, 0);
 
-		cout << c1 << endl;
-		cout << c2 << endl;
 		cout << c1 << c2 << endl;
 
 		cout << c1 + c2 << endl;
@@ -68,6 +66,16 @@ void OOPClass::BeginTest()
 		operator delete(p); // 释放内存
 
 		cout << "delete(p) danger!! *p = " << *p << endl;
+
+		// const object
+		const complex cc(2, 1);
+		cout << "const complex cc = " << cc << endl;
+		// double real() const  可被const object调用
+		cout << "const cc.real() = " <<  cc.real() << endl;
+
+		// template class
+		TComplex<int> tc1(1, 2);
+		TComplex<double> tc2(1, 2);
 	}
 
 	// String 相关测试
@@ -94,5 +102,30 @@ void OOPClass::BeginTest()
 		std::cout << "new String[3]" << std::endl;
 		delete[] p;
 		std::cout << "delete p[] end" << std::endl;
+	}
+
+	// 类的大小
+	if (1)
+	{
+		cout << "类的大小 相关测试  " << endl;
+
+		// 编译器给空类添加一个字节（byte），实例化后给一个独一无二的地址。
+		cout << "sizeof(EmptyClass) = " << sizeof(EmptyClass) << endl;
+
+		// int 4字节
+		cout << "sizeof(ClassWithoutVFP1) = " << sizeof(ClassWithoutVFP1) << endl;
+		// char* 8字节(64位 指针位8个字节)
+		cout << "sizeof(ClassWithoutVFP2) = " << sizeof(ClassWithoutVFP2) << endl;
+		// int 4字节 + char* 8字节(64位) 8字节对齐 补4 = 16
+		cout << "sizeof(ClassWithoutVFP3) = " << sizeof(ClassWithoutVFP3) << endl;
+
+		cout << "ClassWithVFP 带虚函数"<< endl;
+
+		// 虚函数表指针占8位 + 4(补4)
+		cout << "sizeof(ClassWithVFP1) = " << sizeof(ClassWithVFP1) << endl;
+		// 虚函数表指针占8位 + 4(补4) + 8
+		cout << "sizeof(ClassWithVFP2) = " << sizeof(ClassWithVFP2) << endl;
+		// 虚函数表指针占8位 + 4(补4) + 8 + 4(补4) 
+		cout << "sizeof(ClassWithVFP3) = " << sizeof(ClassWithVFP3) << endl;
 	}
 }
