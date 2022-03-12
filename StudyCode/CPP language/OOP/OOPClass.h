@@ -215,12 +215,15 @@ class ClassWithoutVFP3
 	char* p;
 };
 
-// 类带虚函数
+// 类带虚函数(产生vtbl虚函数表)
 class ClassWithVFP1
 {
 	int m_i;
-	// 因为有虚函数, 产出虚函数表的指针占8位
+	// 有虚函数, 产生虚函数表指针
+	// vtbl* vptr 64位机器下占8位
 	virtual void fun() {}
+	// 多态调用模拟: (*(p->vptr)[n])(p);
+	// this调用模拟: (*(this->vptr)[n])(this);
 };
 
 // 继承默认就有虚函数
@@ -238,5 +241,24 @@ class ClassWithVFP3 : ClassWithVFP2
 {
 	int m_i;	// 子类定义,父类仍然占内存
 };
+
+// 数量不定模板参数 Variadic templates
+template<typename T, typename... Types>
+void func(const T& fristArg, const Types&... args)
+{
+	if (fristArg == 0)
+	{
+		return;
+	}
+
+	cout << fristArg << endl;
+
+	// 并不能减少args,导致无法使用空函数结束递归
+	if (sizeof...(args) > 0)
+	{
+		cout << "sizeof...(args) " << sizeof...(args) << endl;
+		func(args..., 0);
+	}
+}
 
 #endif // OOPClass_h__

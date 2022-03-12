@@ -9,6 +9,7 @@
 #include "OOPClass.h"	// 优先当前目录
 
 #include <iostream>		// 优先系统目录
+#include <vector>
 using namespace std;
 
 // 支持complex的输出(pass by reference, return by reference)
@@ -30,7 +31,7 @@ void OOPClass::BeginTest()
 	cout << __FILE__ << "  " << __FUNCTION__ << endl;
 
 	// complex 相关测试
-	if (1)
+	if (0)
 	{
 		cout << "complex 相关测试  " << endl;
 
@@ -79,7 +80,7 @@ void OOPClass::BeginTest()
 	}
 
 	// String 相关测试
-	if (1)
+	if (0)
 	{
 		cout << "String 相关测试  " << endl;
 
@@ -105,7 +106,7 @@ void OOPClass::BeginTest()
 	}
 
 	// 类的大小
-	if (1)
+	if (0)
 	{
 		cout << "类的大小 相关测试  " << endl;
 
@@ -127,5 +128,34 @@ void OOPClass::BeginTest()
 		cout << "sizeof(ClassWithVFP2) = " << sizeof(ClassWithVFP2) << endl;
 		// 虚函数表指针占8位 + 4(补4) + 8 + 4(补4) 
 		cout << "sizeof(ClassWithVFP3) = " << sizeof(ClassWithVFP3) << endl;
+	}
+
+	// oop part2
+	if (0)
+	{
+		// 数量不定模板参数 Variadic templates
+		func("Variadic templates ..", 1, 2, 1.1f, 0);
+
+		// 构造集合
+		vector<int> vct{ 1,2,3,4,5 };
+		int ary[]{ 6,7,8,9,10 };
+
+		// pass by value
+		for (auto elem : vct)
+		{
+			cout << elem << " ";
+		}
+
+		// pass by reference
+		for (auto& elem : ary)
+		{
+			cout << elem << " ";
+		}
+
+		// 对象和他的引用 大小相同,地址相同
+		double dobj = 1.1f;
+		double& dref = dobj;
+		cout << dobj << " == " << dref << endl;
+		cout << &dobj << " == " << &dref << endl;
 	}
 }
