@@ -33,8 +33,9 @@
     <ClCompile Include="CodeSafe.cpp" />
     <ClCompile Include="CPP98.cpp" />
     <ClCompile Include="DataStruct\DataStruct.cpp" />
+    <ClCompile Include="HJ8Step\OOPClass.cpp" />
+    <ClCompile Include="HJ8Step\STLAndGP.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OOP\OOPClass.cpp" />
     <ClCompile Include="TestCLib.cpp" />
     <ClCompile Include="TestSTL.cpp" />
     <ClCompile Include="x86x64\x86x64.cpp" />
@@ -48,7 +49,8 @@
     <ClInclude Include="CPP98.h" />
     <ClInclude Include="DataStruct\DataStruct.h" />
     <ClInclude Include="DataStruct\MyArray.h" />
-    <ClInclude Include="OOP\OOPClass.h" />
+    <ClInclude Include="HJ8Step\OOPClass.h" />
+    <ClInclude Include="HJ8Step\STLAndGP.h" />
     <ClInclude Include="TestCLib.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TestSTL.h" />
@@ -145,6 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>MyStaticLib.lib;MyDLL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
+      <StackReserveSize>104857600</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -184,6 +187,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>MyStaticLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>104857600</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

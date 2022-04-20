@@ -12,7 +12,8 @@
 #include "x86x64/x86x64.h"
 #include "DataStruct/DataStruct.h"
 #include "C++ Templates/C++ Templates.h"
-#include "OOP/OOPClass.h"
+#include "HJ8Step/OOPClass.h"
+#include "HJ8Step/STLAndGP.h"
 
 int main()
 {
@@ -61,6 +62,9 @@ int main()
 
 	OOPClass oopclass;
 	oopclass.BeginTest();
+
+	STLAndGP stlandGP;
+	stlandGP.BeginTest();
 
 	std::cout << endl << "运行结束,请输入任意键退出" << endl;
 	int i;
