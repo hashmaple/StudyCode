@@ -147,6 +147,13 @@ struct MultiplyClass
 	}
 };
 
+// 重载ostream对象的流插入 << 运算符函数
+ostream& operator<< (ostream& out, const MultiplyClass& mc)
+{
+	out << "mc.a = "  << mc.a << " mc.b =  " << mc.b;
+	return out;
+}
+
 using namespace std::placeholders;
 
 // 对外接口
@@ -205,7 +212,7 @@ void STLAndGP::BeginTest()
 		// struct bidirectional_iterator_tag : forward_iterator_tag {};
 		// struct random_access_iterator_tag : bidirectional_iterator_tag {};
 
-		// 萃取各个迭代器的类型
+		// 通过iterator_traits萃取各个迭代器的类型
 		iterator_traits< forward_list<int>::iterator >::iterator_category forward_list_forward;
 		cout << "forward_list it type = " << typeid(forward_list_forward).name() << endl;
 
@@ -221,7 +228,9 @@ void STLAndGP::BeginTest()
 		iterator_traits< vector<int>::iterator >::iterator_category vec_random_access;
 		cout << "vector it type = " << typeid(vec_random_access).name() << endl;
 
-		// has non-trivial dtor 决定destroy的处理
+
+		// iterator_traits更进一步获取 传入的类型是否为class 是否为pod 等等
+		// 比如 has non-trivial dtor 决定destroy时是否调用析构函数
 
 		// 通过函数重载来输出类型
 		display_category(array<int, 10>::iterator());
@@ -702,6 +711,9 @@ void STLAndGP::BeginTest()
 		auto hash_int = hash<int>()(123456);
 		auto hash_float = hash<float>()(123.456f);
 		auto hash_double = hash<double>()(123.456f);
+
+		// 万用的hash function combine + args...
+		// auto hash_val = hash_val(1, 2, 3, 4);
 	}
 
 	// unordered_multiset(hash_xxx): hash table of key-values, non-unique keys
@@ -1120,7 +1132,7 @@ void STLAndGP::BeginTest()
 	}
 
 	// copy inserter ostream_iterator istream_iterator
-	if (1)
+	if (0)
 	{
 		vector<int> v1 = { 1,3,5,7,9};
 		vector<int> v2(3, 0);
@@ -1171,5 +1183,58 @@ void STLAndGP::BeginTest()
 
 		cout << "a1 = " << a1 << " a2 = " << a2 << endl;
 
+	}
+
+	// tuple
+	if (0)
+	{
+		tuple<string, int, float> t1("mike", 35, 1.75f);
+		cout << "sizeof(t1) = " << sizeof(t1) << endl;
+		cout << get<0>(t1) << endl;
+		cout << get<1>(t1) << endl;
+		cout << get<2>(t1) << endl;
+
+		auto t2 = make_tuple(1, 2, 3, "123");
+		get<0>(t2) = 100; // 修改值
+		cout << get<0>(t2) << endl;
+		cout << get<1>(t2) << endl;
+		cout << get<2>(t2) << endl;
+		cout << get<3>(t2) << endl;
+	}
+
+	// 重载cout<< 支持自定义对象
+	if (0)
+	{
+		MultiplyClass mc{ 100, 200 };
+		cout << " mc " << mc << endl;
+	}
+
+	// 分析moveable
+	if (0)
+	{
+		vector<string> v1(1000000, "mike");
+		vector<string> v2(100, "zsq");
+
+		//測試 move 
+		cout << "\n\ntest, with moveable elements" << endl;
+
+		// 消耗30ms 需要做深拷贝 扩容时内部用的move 
+		// 若为不支持moveable的自定义更慢
+		auto timeStart = clock();
+		vector<string> c11(v1);
+		cout << "copy, milli-seconds : " << (clock() - timeStart) << endl;
+
+		// 消耗0ms 只做浅拷贝
+		timeStart = clock();
+		vector<string> c12(std::move(v1));
+		cout << "move copy, milli-seconds : " << (clock() - timeStart) << endl;
+
+		// 消耗0ms 只做swap:交换数据的地址
+		timeStart = clock();
+		vector<string> c13;
+		c13.swap(c12);
+		cout << "swap, milli-seconds : " << (clock() - timeStart) << endl;
+		cout << "c12.capacity() : " << c12.capacity() << endl;
+		cout << "c13.capacity() : " << c13.capacity() << endl;
 	}
 }
