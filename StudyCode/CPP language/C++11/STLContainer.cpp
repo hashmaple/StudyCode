@@ -89,8 +89,16 @@ void STLContainer::BeginTest()
 	}
 
 	// vector
-	if (false)
+	if (1)
 	{
+		// 偏特化 template <class _Alloc>	class vector<bool, _Alloc>;
+		vector<bool> boolVctor{1,0,0,false,0,true};
+		PRINT_ELEMENTS(boolVctor);
+
+		// c/c++ 命令行添加: /Zc:__cplusplus- 开启正确标识
+		cout << __cplusplus << endl;
+
+		// 泛化
 		vector<string> myVctor;
 		myVctor.reserve(10);
 
