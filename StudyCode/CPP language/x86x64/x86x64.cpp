@@ -55,13 +55,16 @@ void x86x64::BeginTest()
 	// 数据类型的区别 数据类型都无变化,主要是指针变化
 	if (0)
 	{
-		cout << "分析数据类型都无变化,主要是指针64位上为8" << endl;
+		cout << "分析数据类型都无变化,主要是指针64位上为8字节" << endl;
 
 		cout << "sizeof(char):" << sizeof(char) << endl;		// 1
 		cout << "sizeof(wchar_t):" << sizeof(wchar_t) << endl;	// 1
 		cout << "sizeof(short):" << sizeof(short) << endl;		// 2
 		cout << "sizeof(int):" << sizeof(int) << endl;			// 4
+
+		// 注意: long类型 特殊:在linux64位上长度为8字节 其他均为4字节
 		cout << "sizeof(long):" << sizeof(long) << endl;		// 4
+
 		cout << "sizeof(long long):" << sizeof(long long) << endl;			// 8
 		cout << "sizeof(unsigned int):" << sizeof(unsigned int) << endl;	// 4
 		cout << "sizeof(float):" << sizeof(float) << endl;					// 4
@@ -69,13 +72,13 @@ void x86x64::BeginTest()
 
 		// 主要就是这里的区别:
 		void* pointer;
-		cout << "sizeof(pointer):" << sizeof(pointer) << endl;	// 32-4 64-8
+		cout << "sizeof(pointer):" << sizeof(pointer) << endl;	// 32-4字节 64-8字节
 	}
 
-	// 分析指针 都是32-4 64-8
+	// 指针 都是32-4字节 64-8字节
 	if (0)
 	{
-		cout << "分析指针, 32位都为4,64位上都为8" << endl;
+		cout << "指针, 32位都为4字节,64位上都为8字节" << endl;
 
 		int* pInt;
 		void* pVoid;
@@ -89,7 +92,7 @@ void x86x64::BeginTest()
 		delete pTest;
 	}
 
-	// string的sizeof变化.在32-28  64-40。
+	// string的sizeof变化.在32-28字节  64-40字节
 	if (0)
 	{
 		string empty("");
