@@ -1,36 +1,12 @@
-/*!
- * \file NewFeatures.cpp
- * \date 2018/12/24 14:05
- *
- * \author zhousq
- * Contact: user@company.com
- *
- * \brief learn c++11 NewFeatures 
- *
- * TODO: long description
- *
- * \note
-*/
 #include "C++11.h"
 
 #include <vector>
 #include <string>
-
 #include <iostream>
 #include <memory>
 
 using namespace std;
 
-NewFeatures::NewFeatures(void)
-{
-}
-
-NewFeatures::~NewFeatures(void)
-{
-}
-
-
-/////////////////////////////对外接口/////////////////////////////////////////////
 // NewFeatures
 void NewFeatures::BeginTest()
 {
@@ -79,26 +55,30 @@ void NewFeatures::BeginTest()
 	}
 	
 	// lambda
-	if (false)
+	if (0)
 	{
-		// lambda []=获取上下文变量   ()输入参数   ->返回值
 		int lambda_i = 8;
 		int lambda_j = 8;
+
+		// l=函数对象 []=获取上下文变量     ()输入参数        ->返回值
 		auto l = [lambda_i, &lambda_j](int i, const string& s) -> int
 		{
-			cout << "lambda functon call! input args i/s = " << i << s << endl;
+			cout << "lambda functon call! input args i-s = " << i << s << endl;
 			cout << "lambda_i = " << lambda_i << endl;
-			lambda_j++;
 			cout << "lambda_j = " << lambda_j << endl;
+
+			lambda_j++;
+
 			return 9527;
 		};
+
 		// 先调用l函数,在输出返回值
 		cout << "lambda call return = " << l(1, "maple") << endl;
 		cout << "lambda_j = " << lambda_j << endl;	// 在函数传递引用后已经被修改
 	}
 
 	// 智能指针 shared,unique,weak
-	if (false)
+	if (0)
 	{
 		// shared_ptr:记录数量是一种智能指针， 它能够记录多少个 shared_ptr 共同指向一个对象， 
 		// 从而消除显示的调用 delete ， 当引用计数变为零的时候就会将对象自动删除

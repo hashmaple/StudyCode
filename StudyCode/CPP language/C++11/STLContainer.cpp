@@ -37,14 +37,6 @@ for (const auto& it : CONTAINER) { cout << it << " " ; }; cout << endl;
 #define PRINT_MAP_ELEMENTS(CONTAINER)  cout << "Container "<< #CONTAINER << ": "; \
 for (const auto& it : CONTAINER) { cout << it.first << "-" << it.second << " "; }; cout << endl;
 
-STLContainer::STLContainer(void)
-{
-}
-
-STLContainer::~STLContainer(void)
-{
-}
-
 /////////////////////////////对外接口/////////////////////////////////////////////
 // NewFeatures
 void STLContainer::BeginTest()

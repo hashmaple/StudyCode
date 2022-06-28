@@ -42,9 +42,6 @@ public:
 class GeneralUtilities
 {
 public:
-	GeneralUtilities(void);
-	~GeneralUtilities(void);
-
 	// 对外接口
 	void BeginTest();
 
@@ -67,9 +64,6 @@ public:
 class NewFeatures
 {
 public:
-	NewFeatures(void);
-	~NewFeatures(void);
-
 	// 对外接口
 	void BeginTest();
 
@@ -93,9 +87,6 @@ public:
 class NewCPP
 {
 public:
-	NewCPP(void);
-	~NewCPP(void);
-
 	// 对外接口
 	void BeginTest();
 };
@@ -115,9 +106,6 @@ namespace std
 class STLContainer
 {
 public:
-	STLContainer(void);
-	~STLContainer(void);
-
 	// 对外接口
 	void BeginTest();
 };

@@ -25,16 +25,6 @@
 
 using namespace std;
 
-GeneralUtilities::GeneralUtilities(void)
-{
-}
-
-GeneralUtilities::~GeneralUtilities(void)
-{
-}
-
-
-/////////////////////////////对外接口/////////////////////////////////////////////
 // GeneralUtilities
 void GeneralUtilities::BeginTest()
 {
@@ -82,7 +72,7 @@ void GeneralUtilities::BeginTest()
 	}
 	
 	// shared_ptr 共享式拥有指针
-	if (false)
+	if (1)
 	{
 		shared_ptr<string> p1 = make_shared<string>("maple");
 		shared_ptr<string> p2 = p1;	// p2和p1是指向一个string对象.

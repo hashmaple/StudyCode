@@ -23,14 +23,6 @@ using namespace std;
 
 #define PR(...) printf(__VA_ARGS__)
 
-NewCPP::NewCPP(void)
-{
-}
-
-NewCPP::~NewCPP(void)
-{
-}
-
 class temp
 {
 	public:
