@@ -119,6 +119,14 @@ void STLContainer::BeginTest()
 		myVctor.shrink_to_fit();
 		cout << "after shrink_to_fit() capacity: " << myVctor.capacity() << endl;
 
+		// 构造方式
+		vector<int> intVct1(3); // 0 0 0
+		vector<int> intVct2(3, 1); // 1 1 1
+		// 初始化列表支持
+		vector<int> intVct3{ 1,2,3 }; // 1,2,3
+		vector<int> intVct4 = { 10,20,30 }; // 10,20,30
+
+		vector<int> intVct[3]{ {1, 1}, {1, 2}, {1, 3} }; // 3个vct
 	}
 
 	// list
