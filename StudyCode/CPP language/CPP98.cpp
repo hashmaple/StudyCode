@@ -27,6 +27,7 @@
 #include <ctime>
 
 #include <random>
+#include <string>
 
 using namespace std;
 
@@ -144,6 +145,53 @@ void CPP98::BeginTest()
 		}
 
 		fclose(pFile);
+	}
+
+	// cin cout 重定向
+	if (0)
+	{
+		// 创建输入文件
+		FILE* pFile = fopen("in.txt", "w+");
+		if (pFile)
+		{
+			fputs("this is from in.txt!", pFile);
+			fclose(pFile);
+		}
+
+		// 创建输出文件
+		pFile = fopen("out.txt", "w+");
+		if (pFile)
+		{
+			fclose(pFile);
+		}
+
+		string info;
+
+		// 将标准输入流重定向到 in.txt 文件
+		auto fpIn = freopen("in.txt", "r", stdin);
+
+		// cin >> info; // 获取单个单词
+		getline(cin, info); // 获取整句
+		
+		//将标准输出重定向到 out.txt文件
+		auto fpOut = freopen("out.txt", "w", stdout);
+
+		cout << info << "\n";
+
+		// 关闭
+		if (fpIn)
+		{
+			fclose(fpIn);
+		}
+
+		if (fpOut)
+		{
+			fclose(fpOut);
+		}
+
+		// 恢复到控制台 stdin有问题,未恢复?
+		freopen("CON", "r", stdin);
+		freopen("CON", "w", stdout);
 	}
 
 	// 标准c字符和字符串

@@ -81,7 +81,7 @@ void STLContainer::BeginTest()
 	}
 
 	// vector
-	if (1)
+	if (false)
 	{
 		// Æ«ÌØ»¯ template <class _Alloc>	class vector<bool, _Alloc>;
 		vector<bool> boolVctor{1,0,0,false,0,true};

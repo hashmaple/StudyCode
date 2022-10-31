@@ -72,7 +72,7 @@ void GeneralUtilities::BeginTest()
 	}
 	
 	// shared_ptr 共享式拥有指针
-	if (1)
+	if (false)
 	{
 		shared_ptr<string> p1 = make_shared<string>("maple");
 		shared_ptr<string> p2 = p1;	// p2和p1是指向一个string对象.
