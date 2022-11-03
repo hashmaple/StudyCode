@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm\Algorithm.cpp" />
     <ClCompile Include="C++ Templates\C++ Templates.cpp" />
     <ClCompile Include="C++11\C++11String.cpp" />
     <ClCompile Include="C++11\FunAndLambda.cpp" />
@@ -41,6 +42,7 @@
     <ClCompile Include="x86x64\x86x64.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithm\Algorithm.h" />
     <ClInclude Include="C++ Templates\C++ Templates.h" />
     <ClInclude Include="C++11\C++11.h" />
     <ClInclude Include="C++14\C++14.h" />

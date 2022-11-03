@@ -14,6 +14,7 @@
 #include "C++ Templates/C++ Templates.h"
 #include "HJ8Step/OOPClass.h"
 #include "HJ8Step/STLAndGP.h"
+#include "Algorithm/Algorithm.h"
 
 int main()
 {
@@ -56,6 +57,9 @@ int main()
 
 	DataStruct dataStruct;
 	dataStruct.BeginTest();
+
+	Algorithm algo;
+	algo.BeginTest();
 
 	TestTemplates Templates;
 	Templates.BeginTest();

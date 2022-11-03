@@ -59,6 +59,9 @@
     <ClCompile Include="HJ8Step\STLAndGP.cpp">
       <Filter>HJ8Step</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithm\Algorithm.cpp">
+      <Filter>Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -101,6 +104,9 @@
     <ClInclude Include="HJ8Step\STLAndGP.h">
       <Filter>HJ8Step</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithm\Algorithm.h">
+      <Filter>Algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="C++98">
@@ -132,6 +138,9 @@
     </Filter>
     <Filter Include="HJ8Step">
       <UniqueIdentifier>{c9e52ff4-5c20-4ada-8dc6-eb24613a2676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithm">
+      <UniqueIdentifier>{e69ab94b-acc3-4753-b45e-59d2ca354ce2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
