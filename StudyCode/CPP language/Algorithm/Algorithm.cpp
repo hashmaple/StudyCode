@@ -141,6 +141,46 @@ void SelectSort(int A[], int size)
 	}
 }
 
+// 递归recursion
+int Fibonacci(int n)
+{
+	if (n == 0)
+	{
+		return 0;
+	}
+
+	if (n == 1)
+	{
+		return 1;
+	}
+
+	return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+// 动态规划Dynamic Programming
+int FibonacciDP(size_t n)
+{
+	if (n == 0)
+	{
+		return 0;
+	}
+
+	if (n == 1)
+	{
+		return 1;
+	}
+
+	int a = 0, b = 1;
+
+	for (size_t i = 0; i < n - 1; i++)
+	{
+		b = b + a; // b为前2值相加
+		a = b - a; // a为前b值
+	}
+
+	return b;
+}
+
 // 对外接口
 void Algorithm::BeginTest()
 {
@@ -175,5 +215,11 @@ void Algorithm::BeginTest()
 
 	rand_array(nArray, size);
 	PRINT_ELEMENTS(nArray);
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		cout << "Fibonacci " << i << " = " << Fibonacci(i) << endl;
+		cout << "FibonacciDP " << i << " = " << FibonacciDP(i) << endl;
+	}
 
 }
