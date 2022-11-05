@@ -1028,7 +1028,7 @@ void STLAndGP::BeginTest()
 			cout << ' ' << elem; 	//output: 80 71 53 45 33 32 26 12 	     
 	}
 
-	// 算法的实现
+	// 算法 参考 https://blog.csdn.net/FlushHip/article/details/82858933
 	if (0)
 	{
 		cout << "\ntest_all_components().......... \n";
@@ -1182,7 +1182,6 @@ void STLAndGP::BeginTest()
 		}
 
 		cout << "a1 = " << a1 << " a2 = " << a2 << endl;
-
 	}
 
 	// tuple

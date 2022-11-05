@@ -26,16 +26,22 @@ void rand_array(int A[], int size)
 {
 	cout << " rand_array " << endl;
 
+	Sleep(2);
 	srand((int)time(0));
 
-	for (auto i = 0; i < size; i++)
+	for (auto count = 0; count < 7; count++)
 	{
-		auto ex_i = rand() % size;
+		for (auto i = 0; i < size; i++)
+		{
+			auto ex_i = rand() % size;
 
-		auto temp = A[i];
-		A[i] = A[ex_i];
-		A[ex_i] = temp;
+			auto temp = A[i];
+			A[i] = A[ex_i];
+			A[ex_i] = temp;
+		}
 	}
+
+	
 }
 
 // 快速排序
@@ -154,6 +160,7 @@ void Algorithm::BeginTest()
 	rand_array(nArray, size);
 	PRINT_ELEMENTS(nArray);
 
+	// 冒泡排序 每次找最大值换到最前面
 	cout << " BubbleSort n*n" << endl;
 	BubbleSort(nArray, size);
 	PRINT_ELEMENTS(nArray);
@@ -161,7 +168,12 @@ void Algorithm::BeginTest()
 	rand_array(nArray, size);
 	PRINT_ELEMENTS(nArray);
 
+	// 选择排序 每次找1个最大/小值 换1次位置
 	cout << " SelectSort n*n" << endl;
 	SelectSort(nArray, size);
 	PRINT_ELEMENTS(nArray);
+
+	rand_array(nArray, size);
+	PRINT_ELEMENTS(nArray);
+
 }
