@@ -39,8 +39,6 @@ using namespace std;
 // printf("now pid is %d \n", getpid());
 // printf("now tid is %d \n", gettid());
 
-
-
 // myallocate
 template<typename T>
 class MyAlloc
@@ -362,6 +360,19 @@ void AtomicConsumer()
 
 }
 
+// thread_local
+void tl_func(string name)
+{
+	thread_local int count = 1;
+	for (auto i = 0; i < 5; i++)
+	{
+		cout << name << " count = " << count << endl;
+		count++;
+	}
+
+	return;
+}
+
 /////////////////////////////对外接口/////////////////////////////////////////////
 // MultiThread
 void MultiThread::BeginTest()
@@ -378,6 +389,16 @@ void MultiThread::BeginTest()
 
 		// 2 将执行线程与线程对象分开，允许独立执行。线程退出后，将释放任何分配的资源
 		//t.detach();
+	}
+
+	// C++11 THREAD_LOCAL 和 join
+	if (0)
+	{
+		// thread_local int count = 1; 线程安全
+		std::thread t1(tl_func, "t1"); // 12345
+		std::thread t2(tl_func, "t2"); // 12345
+		t1.join();
+		t2.join();
 	}
 
 	// async and future 方便的使用异步方法
