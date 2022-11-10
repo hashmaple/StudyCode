@@ -21,6 +21,17 @@ using namespace std;
 #define PRINT_ELEMENTS(CONTAINER)  cout << "Container["<< #CONTAINER << "]: "; \
 for (const auto& it : CONTAINER) { cout << it << " " ; }; cout << endl << endl;
 
+inline void printArray(int A[], int size)
+{
+	cout << "printArray : ";
+
+	for (auto i = 0; i < size; i++)
+	{
+		cout << A[i] << " ";
+	}
+	cout << endl;
+}
+
 // 乱序
 void rand_array(int A[], int size)
 {
@@ -111,6 +122,8 @@ void BubbleSort(int A[], int size)
 				A[j + 1] = temp;
 			}
 		}
+
+		printArray(A, size);
 	}
 }
 
@@ -138,11 +151,38 @@ void SelectSort(int A[], int size)
 			A[min_i] = A[i];
 			A[i] = temp;
 		}
+
+		printArray(A, size);
+	}
+}
+
+// 插入排序
+void InsertSort(int A[], int size)
+{
+	// 一个数据插入到已排序的数据中（模拟扑克抓牌）
+	for (auto i = 1; i < size; i++)
+	{
+		// 等待插入的数值
+		int insert_value = A[i];
+		int j = i;
+
+		// 从尾端判断，若小就移出来
+		while (j > 0 && A[j-1] > insert_value)
+		{
+			// 不断后移，空出位置
+			A[j] = A[j - 1];
+			j--;
+		}
+
+		// 空位放入
+		A[j] = insert_value;
+
+		printArray(A, size);
 	}
 }
 
 // 递归recursion
-int Fibonacci(int n)
+int Fibonacci(size_t n)
 {
 	if (n == 0)
 	{
@@ -192,34 +232,50 @@ void Algorithm::BeginTest()
 	rand_array(nArray, size);
 	PRINT_ELEMENTS(nArray);
 
-	// 快速排序 数组 首下标 未下标
-	cout << " QuickSort nlogn" << endl;
-	QuickSort(nArray, 0, size - 1);
-	PRINT_ELEMENTS(nArray);
-
-	rand_array(nArray, size);
-	PRINT_ELEMENTS(nArray);
-
-	// 冒泡排序 每次找最大值换到最前面
-	cout << " BubbleSort n*n" << endl;
-	BubbleSort(nArray, size);
-	PRINT_ELEMENTS(nArray);
-
-	rand_array(nArray, size);
-	PRINT_ELEMENTS(nArray);
-
-	// 选择排序 每次找1个最大/小值 换1次位置
-	cout << " SelectSort n*n" << endl;
-	SelectSort(nArray, size);
-	PRINT_ELEMENTS(nArray);
-
-	rand_array(nArray, size);
-	PRINT_ELEMENTS(nArray);
-
-	for (size_t i = 0; i < 10; i++)
+	// 排序算法
+	if (1)
 	{
-		cout << "Fibonacci " << i << " = " << Fibonacci(i) << endl;
-		cout << "FibonacciDP " << i << " = " << FibonacciDP(i) << endl;
+		// 快速排序 数组 首下标 未下标
+		cout << " QuickSort nlogn" << endl;
+		QuickSort(nArray, 0, size - 1);
+		PRINT_ELEMENTS(nArray);
+
+		rand_array(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		// 冒泡排序 每次找最大值换到最前面
+		cout << " BubbleSort n*n" << endl;
+		BubbleSort(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		rand_array(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		// 选择排序 每次找1个最大/小值 换1次位置
+		cout << " SelectSort n*n" << endl;
+		SelectSort(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		rand_array(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		// 插入排序 每次插入1个 一直保持有序
+		cout << " InsertSort n*n" << endl;
+		InsertSort(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
+		rand_array(nArray, size);
+		PRINT_ELEMENTS(nArray);
 	}
 
+	// 其他算法
+	if (0)
+	{
+		// Fibonacci数列
+		for (size_t i = 0; i < 10; i++)
+		{
+			cout << "Fibonacci " << i << " = " << Fibonacci(i) << endl;
+			cout << "FibonacciDP " << i << " = " << FibonacciDP(i) << endl;
+		}
+	}
 }
