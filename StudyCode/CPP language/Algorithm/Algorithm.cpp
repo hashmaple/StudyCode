@@ -15,6 +15,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <list>
 using namespace std;
 
 // 宏 打印容器
@@ -181,6 +182,35 @@ void InsertSort(int A[], int size)
 	}
 }
 
+// 求N个质数
+void CountPrime(size_t n)
+{
+	std::list<size_t> primes{ 2,3,5,7 };
+
+	// 0,1,2无须处理  3+2+2+2
+	for (size_t i = 9; primes.size() < n; i = i + 2)
+	{
+		bool bPrime = true;
+
+		// 确保都不可整除
+		for (auto p : primes)
+		{
+			if (i % p == 0)
+			{
+				bPrime = false;
+				break;
+			}
+		}
+
+		if (bPrime)
+		{
+			primes.push_back(i);
+		}
+	}
+
+	PRINT_ELEMENTS(primes);
+}
+
 // 递归recursion
 int Fibonacci(size_t n)
 {
@@ -233,7 +263,7 @@ void Algorithm::BeginTest()
 	PRINT_ELEMENTS(nArray);
 
 	// 排序算法
-	if (1)
+	if (0)
 	{
 		// 快速排序 数组 首下标 未下标
 		cout << " QuickSort nlogn" << endl;
@@ -269,7 +299,7 @@ void Algorithm::BeginTest()
 	}
 
 	// 其他算法
-	if (0)
+	if (1)
 	{
 		// Fibonacci数列
 		for (size_t i = 0; i < 10; i++)
@@ -277,5 +307,8 @@ void Algorithm::BeginTest()
 			cout << "Fibonacci " << i << " = " << Fibonacci(i) << endl;
 			cout << "FibonacciDP " << i << " = " << FibonacciDP(i) << endl;
 		}
+
+		// 求质数
+		CountPrime(10);
 	}
 }
