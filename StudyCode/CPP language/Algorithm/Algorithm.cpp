@@ -251,6 +251,97 @@ int FibonacciDP(size_t n)
 	return b;
 }
 
+constexpr int CHESS_SIZE = 8;
+static int FIND_COUNT = 0;
+void PrintChess(int A[CHESS_SIZE][CHESS_SIZE])
+{
+	cout << "==PrintChess==";
+
+	for (int i = 0; i < CHESS_SIZE; i++)
+	{
+		cout << endl;
+
+		for (int j = 0; j < CHESS_SIZE; j++)
+		{
+			cout << A[i][j] << " ";
+		}
+	}
+
+	cout << endl;
+}
+
+// 八皇后check
+bool CheckSafe(int A[CHESS_SIZE][CHESS_SIZE], int row, int col)
+{
+	for (auto i = 0; i < CHESS_SIZE; i++)
+	{
+		// 同列排除
+		if (A[row][i] > 0 && i != col)
+		{
+			return false;
+		}
+
+		// 同行排除
+		if (A[i][col] > 0 && i != row)
+		{
+			return false;
+		}
+	}
+
+	// 正对角线排除
+	for (auto i = row - 1,j = col - 1; 
+		i >= 0  && j >= 0; i--,j--)
+	{
+		if (A[i][j] > 0 && i != row && j != col)
+		{
+			return false;
+		}
+	}
+
+	// 反对角线排除
+	for (auto i= row - 1, j = col + 1;
+		i >= 0 && j < CHESS_SIZE; i--, j++)
+	{
+		if (A[i][j] > 0 && i != row && j != col)
+		{
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+// 八皇后
+void PlaceChess(int A[CHESS_SIZE][CHESS_SIZE], int row)
+{
+	// 一行一行的找位置摆放
+	for (auto i = 0; i < CHESS_SIZE; i++)
+	{
+		// 先放下棋子
+		A[row][i] = row + 1;
+
+		// 放下OK 继续
+		if (CheckSafe(A, row, i))
+		{
+			// 放下了最后1个
+			if (row + 1 == CHESS_SIZE)
+			{
+				// 打印解法
+				PrintChess(A);
+
+				FIND_COUNT++;
+			}
+			else
+			{
+				// 继续
+				PlaceChess(A, row + 1);
+			}
+		}
+
+		A[row][i] = 0;
+	}
+}
+
 // 对外接口
 void Algorithm::BeginTest()
 {
@@ -310,5 +401,11 @@ void Algorithm::BeginTest()
 
 		// 求质数
 		CountPrime(10);
+
+		// 8皇后
+		int nChess[CHESS_SIZE][CHESS_SIZE] = {};
+		PrintChess(nChess);
+		PlaceChess(nChess, 0);
+		cout << "The Eight Queens find solution count = " << FIND_COUNT << endl;
 	}
 }
