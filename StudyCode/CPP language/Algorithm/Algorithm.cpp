@@ -251,7 +251,7 @@ int FibonacciDP(size_t n)
 	return b;
 }
 
-constexpr int CHESS_SIZE = 8;
+constexpr int CHESS_SIZE = 5;
 static int FIND_COUNT = 0;
 void PrintChess(int A[CHESS_SIZE][CHESS_SIZE])
 {
@@ -342,6 +342,31 @@ void PlaceChess(int A[CHESS_SIZE][CHESS_SIZE], int row)
 	}
 }
 
+// 求n个数中取m个的组合
+constexpr int NUM_SIZE = 5;
+constexpr int GET_SIZE = 2;
+int sign[GET_SIZE] = {};
+void dfs_combi(int n, int m)
+{
+	// 先找最大的数
+	for (int i = m; i <= n; i++)
+	{
+		// 选择第i个元素作为组合的最后1个元素
+		sign[m - 1] = i;
+
+		if (m > 1)
+		{
+			// 不断递归找前一个
+			dfs_combi(i - 1, m - 1);
+		}
+		else
+		{
+			// m为0 取完m个元素了
+			printArray(sign, GET_SIZE);
+		}
+	}
+}
+
 // 对外接口
 void Algorithm::BeginTest()
 {
@@ -407,5 +432,8 @@ void Algorithm::BeginTest()
 		PrintChess(nChess);
 		PlaceChess(nChess, 0);
 		cout << "The Eight Queens find solution count = " << FIND_COUNT << endl;
+
+		// 求n个数中取m个的组合
+		dfs_combi(NUM_SIZE, GET_SIZE);
 	}
 }
