@@ -427,7 +427,7 @@ bool SafeTest()
 	}
 
 	// ≤‚ ‘∑µªÿ
-	if (false)
+	if (0)
 	{
 		TagTest& tagA = GetStructA();
 
