@@ -164,11 +164,12 @@ void TestLua::BeginTest()
 
 		lua_setglobal(lua_state, "arg");
 
-		// 运行hello.lua脚本
+		// 运行lua脚本
 		auto b = luaL_dofile(lua_state, "test.lua");
 		if (b == false)
 		{
-			cout << "调用luaL_dofile函数: failed!"<< endl;
+			// 如果没有错误，函数返回假；有错则返回真。
+			cout << "调用luaL_dofile函数: 返回 false(没有错误)!"<< endl;
 		}
 
 		// 调用LUA的函数 (方法调用要在lua_pcall调用之后)
@@ -186,6 +187,32 @@ void TestLua::BeginTest()
 		writeLuaArray(lua_state);
 		cout << "LUA表格修改后" << endl;
 		readLuaArray(lua_state);
+
+		// 关闭Lua虚拟机
+		lua_close(lua_state);
+	}
+
+	// 测试协程文件
+	if (0)
+	{
+		cout << "==TestLua::BeginTest 测试协程===" << endl;
+
+		// 初始化Lua虚拟机
+		lua_State* lua_state;
+		lua_state = luaL_newstate();
+
+		// 打开标准的libs
+		luaL_openlibs(lua_state);
+
+		// 加载LUA文件
+		auto b = luaL_loadfile(lua_state, "test_coroutine.lua");
+		if (b)
+		{
+			cout << "luaL_loadfile error!" << endl;
+		}
+
+		// 运行lua文件
+		lua_call(lua_state, 0, 0);
 
 		// 关闭Lua虚拟机
 		lua_close(lua_state);
