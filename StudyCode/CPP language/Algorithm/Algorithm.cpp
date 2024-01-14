@@ -259,12 +259,14 @@ void Algorithm::BeginTest()
 	// 创建数组
 	int nArray[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
 	int size = sizeof(nArray) / sizeof(int);
-	rand_array(nArray, size);
-	PRINT_ELEMENTS(nArray);
+
 
 	// 排序算法
 	if (0)
 	{
+		rand_array(nArray, size);
+		PRINT_ELEMENTS(nArray);
+
 		// 快速排序 数组 首下标 未下标
 		cout << " QuickSort nlogn" << endl;
 		QuickSort(nArray, 0, size - 1);
@@ -299,7 +301,7 @@ void Algorithm::BeginTest()
 	}
 
 	// 其他算法
-	if (1)
+	if (0)
 	{
 		// Fibonacci数列
 		for (size_t i = 0; i < 10; i++)

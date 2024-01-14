@@ -32,11 +32,5 @@ void DataStruct::BeginTest()
 
 	// 常用算法: 查找,插入,删除,更新,排序.
 
-	// 数组(Array)
-	if (1)
-	{
-
-	}
-
 	return;
 }
