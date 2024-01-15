@@ -33,6 +33,8 @@ void getFiles(string path, std::map<size_t, _finddata_t>& mapfiles)
 			}
 			else // 文件则加入
 			{
+				// [2024/1/15 Mike]
+				// [needfix 判断大小相等，还需要HASH也相等]
 				if (mapfiles.find(fileinfo.size) != mapfiles.end())
 				{
 					G_sameFilePaths.push_back(path + "\\" + fileinfo.name);
@@ -87,5 +89,4 @@ void FileCleanUp::BeginTest()
 			remove(name.c_str());
 		}
 	}
-	
 }
