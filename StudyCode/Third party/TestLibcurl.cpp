@@ -32,11 +32,58 @@
 #include <string>
 using namespace std;
 
+// 宽字符串转换到UTF8
+inline const char* Port_WideStrToUTF8(const wchar_t* info, char* buf, size_t byte_size)
+{
+	int res = WideCharToMultiByte(CP_UTF8, 0, info, -1, buf, int(byte_size),
+		NULL, NULL);
+
+	if (0 == res)
+	{
+		if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+		{
+			buf[byte_size - 1] = 0;
+		}
+		else
+		{
+			buf[0] = 0;
+		}
+	}
+
+	return buf;
+}
+
+// UTF8转换到宽字符串
+inline const wchar_t* Port_UTF8ToWideStr(const char* info, wchar_t* buf, size_t byte_size)
+{
+	const size_t len = byte_size / sizeof(wchar_t);
+	int res = MultiByteToWideChar(CP_UTF8, 0, info, -1, buf, int(len));
+
+	if (res == 0)
+	{
+		if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+		{
+			buf[len - 1] = 0;
+		}
+		else
+		{
+			buf[0] = 0;
+		}
+	}
+
+	return buf;
+}
+
+// 接收返回值
 size_t process_data(void *buffer, size_t size, size_t nmemb, void *user_p)
 {
 	FILE *fp = (FILE *)user_p;
 	size_t return_size = fwrite(buffer, size, nmemb, fp);
-	cout << (char *)buffer << endl;
+
+	// UTF8 转宽字符
+	wchar_t wstrbuff[1024] = {};
+	Port_UTF8ToWideStr((char *)buffer, wstrbuff, 1023);
+
 	return return_size;
 }
 

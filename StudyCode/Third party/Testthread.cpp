@@ -37,7 +37,7 @@ pthread_key_t p_key;
 void * childFun(void *args)
 {
 	pthread_t tid = pthread_self();
-	printf("thread %d enter\n", tid);
+	printf("thread %d enter\n", tid.x);
 
 	int* num = (int*)args;
 	cout << "args num = " << *num << endl;
